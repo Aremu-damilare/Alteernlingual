@@ -1,0 +1,461 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-15 14:55+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\Alteernlingual\settings.py:116
+msgid "English"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:117
+msgid "Igbo"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:118
+msgid "hausa"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:119
+msgid "Yoruba"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:120
+msgid "Arabic"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:121
+msgid "French"
+msgstr ""
+
+#: .\alteernlingual_user\models.py:12
+msgid "Male"
+msgstr ""
+
+#: .\alteernlingual_user\models.py:13
+msgid "Female"
+msgstr ""
+
+#: .\alteernlingual_user\models.py:30
+msgid "Profile"
+msgstr ""
+
+#: .\alteernlingual_user\models.py:31
+msgid "Profiles"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:80
+msgid "I want to learn...."
+msgstr "Ina so in koya ...."
+
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:85
+msgid "Alphabet"
+msgstr "Haruffa"
+
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:96
+msgid "Proverbs"
+msgstr "Karin Magana"
+
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:98
+msgid "language proverbs and their meaning."
+msgstr "karin maganar harshe da ma’anarsu."
+
+#: .\alteernlingual_user\templates\auth_user\userNav.html:18
+msgid "Change password"
+msgstr "Canza kalmar shiga"
+
+#: .\alteernlingual_user\templates\auth_user\userNav.html:23
+msgid "Dashboard"
+msgstr "Allon allo"
+
+#: .\alteernlingual_user\templates\auth_user\userNav.html:25
+msgid "Logout"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:46
+msgid "Select profile photo"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:56
+msgid "Choose Image"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:57
+msgid "JPG, GIF or PNG. Max size of 800K"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:69
+msgid "Profile information"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:73
+msgid "First Name"
+msgstr "Sunan rana"
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:81
+msgid "Last Name"
+msgstr "Sunan mahaifa"
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:90
+msgid "Birthday"
+msgstr "Ranar Haihuwa"
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:98
+msgid "Gender"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:112
+msgid "Email"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:119
+msgid "Phone"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:125
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:129
+msgid "Address"
+msgstr "Adireshin"
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:136
+msgid "Number"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:145
+msgid "City"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:152
+msgid "ZIP"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:159
+msgid "Save All"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:9
+msgid "Join Our Newsletter"
+msgstr "Shiga Jaridarmu"
+
+#: .\alteernlingual_user\templates\footer.html:10
+msgid "Be the first to know when we launch"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:34
+msgid "Useful Links"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:45
+msgid "Discover"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:56
+msgid "Our Social Networks"
+msgstr ""
+
+#: .\alteernlingual_user\templates\guestHeader.html:18
+msgid "Features"
+msgstr "Siffofin"
+
+#: .\alteernlingual_user\templates\guestHeader.html:19
+msgid "F.A.Q"
+msgstr ""
+
+#: .\alteernlingual_user\templates\guestHeader.html:21
+#: .\alteernlingual_user\templates\index.html:229
+msgid "Contact"
+msgstr "Saduwa"
+
+#: .\alteernlingual_user\templates\guestHeader.html:22
+msgid "Get Started"
+msgstr "Farawa"
+
+#: .\alteernlingual_user\templates\index.html:20
+msgid "The Language Learning Platform"
+msgstr "Dandalin Koyon Harshe"
+
+#: .\alteernlingual_user\templates\index.html:21
+msgid ""
+"Our ultimate goal is to give everyone access to a language learning "
+"experience through technology."
+msgstr ""
+"Babban burinmu shine mu baiwa kowa damar samun ƙwarewar koyon harshe ta "
+"hanyar fasaha."
+
+#: .\alteernlingual_user\templates\index.html:22
+#: .\alteernlingual_user\templates\registration\login.html:107
+msgid "Login"
+msgstr "Shiga"
+
+#: .\alteernlingual_user\templates\index.html:23
+msgid "Sign Up"
+msgstr "Shiga"
+
+#: .\alteernlingual_user\templates\index.html:68
+msgid "Our Features"
+msgstr "Abubuwan Mu"
+
+#: .\alteernlingual_user\templates\index.html:77
+msgid "Signup "
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:78
+msgid "Complete the few steps of registration and enjoy a free module! "
+msgstr "Kammala stepsan matakai na rajista kuma ku more tsarin kyauta!"
+
+#: .\alteernlingual_user\templates\index.html:82
+msgid "Maintain a profile"
+msgstr "Kula da bayanin martaba"
+
+#: .\alteernlingual_user\templates\index.html:83
+msgid "You have your profile automatically set up upon signing up."
+msgstr "Kuna da bayanin martabar ku ta atomatik akan yin rajista."
+
+#: .\alteernlingual_user\templates\index.html:87
+msgid "Choose language of interaction"
+msgstr "Zabi yaren hulɗa"
+
+#: .\alteernlingual_user\templates\index.html:88
+msgid ""
+"Users get to select a language they understand by which they read along to "
+"learn another language (language of interest)."
+msgstr ""
+"Masu amfani za su zaɓi yaren da suke fahimta ta inda suke karanta tare don "
+"koyan wani yare (yaren sha'awa)."
+
+#: .\alteernlingual_user\templates\index.html:92
+msgid "Choose language of interest"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:93
+msgid ""
+"Language of interest is the language a user desires to learn at a given "
+"time. They appear in the original language texts with audio feedbacks. "
+msgstr ""
+"Harshen sha'awa shine yaren da mai amfani yake so ya koya a wani lokaci. "
+"Suna bayyana a cikin rubutun harshe na asali tare da mayar da martani na "
+"sauti."
+
+#: .\alteernlingual_user\templates\index.html:97
+msgid "Practice with audio feedbacks"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:98
+msgid ""
+"Users can listen to the sounds of all visible texts in both languages – "
+"language of interaction and language of interest."
+msgstr ""
+"Masu amfani za su iya sauraron sautunan duk rubutun da ake gani a cikin "
+"yarukan biyu harshe na mu'amala da harshen sha'awa."
+
+#: .\alteernlingual_user\templates\index.html:102
+msgid "Learn anytime anywhere"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:103
+msgid ""
+"Alteɘrnligual is available on both mobile and web so you can fit your "
+"language learning schedule to fit into your daily itinerary no matter where "
+"you are."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:125
+msgid "High-quality resources"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:126
+msgid ""
+"We hold a list of carefully crafted resources. We have a team of in-house "
+"education professionals that are committed to optimizing the ways languages "
+"are taught and learnt."
+msgstr ""
+"Muna riƙe da jerin albarkatun da aka ƙera a hankali. Muna da ƙungiyar "
+"ƙwararrun masana ilimin cikin gida waɗanda ke da niyyar haɓaka hanyoyin "
+"koyar da harsuna."
+
+#: .\alteernlingual_user\templates\index.html:127
+msgid ""
+"We currently have structured modules in Hausa, Igbo, Yoruba, English, and "
+"French languages."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:128
+msgid ""
+"  Each of the modules has been crafted to improve users’ reading, writing, "
+"listening, and speaking skills from beginners level through elementary, "
+"intermediate, upper intermediate, advanced to native speaker/proficiency "
+"level."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:131
+msgid ""
+"You can follow the modules sequentially from start or skip to the stage you "
+"consider appropriately fit for you."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:132
+msgid ""
+"With our simplified and flexible modules, audio feedbacks, and partitioned "
+"interface features, we are confident users with little or no prior no "
+"knowledge can learn without difficulties."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:142
+msgid "Practice with native speakers"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:143
+msgid ""
+"Our community enables users to link up with one another in order to maintain "
+"consistent practice with native speakers of their languages of interests. "
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:176
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:183
+msgid "Is Alteernlingual free? "
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:185
+msgid "No. Users get to enjoy Alteɘrnligual services based on subscriptions."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:191
+msgid "Do I get a certificate after learning?"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:193
+msgid ""
+"When users take exercises after completing a module, the grades and number "
+"of attempts are automatically recorded on users’ profile with printable "
+"feature."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:199
+msgid "What can I learn on Alteernlingual? "
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:201
+msgid ""
+" Users get to learn African and other international languages in structured "
+"ways using their knowledge of one language to learn another."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:207
+msgid "Is there a duration for one to finish learning a language?"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:209
+msgid ""
+"Not exactly. However, the modules are spread to improve users’ reading, "
+"writing, listening, and speaking skills from beginners level through "
+"elementary, intermediate, upper intermediate, advanced to native speaker/"
+"proficiency level."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:210
+msgid ""
+"Users can follow the modules sequentially from start or skip to the stage "
+"they consider appropriately fit for them."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:230
+msgid ""
+"Please enter the details of your request. A member of our support staff will "
+"respond as soon as possible."
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:264
+msgid "Registered Address"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:265
+msgid "Lagos, Nigeria"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:269
+msgid "Operation Office"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:270
+msgid "Abuja, Nigeria"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:274
+msgid "Email Us"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:275
+msgid "contact@alteernlingual.com<br>info@alteernlingual.com"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:279
+msgid "Working Hours"
+msgstr ""
+
+#: .\alteernlingual_user\templates\index.html:280
+msgid "Mon - Fri: 09:00hours – 17:00hours<br>Saturday: 10:00hours – 14:00hours"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:93
+msgid "Sign into your account"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:110
+#, fuzzy
+#| msgid "Change password"
+msgid "Forgot password?"
+msgstr "Canza kalmar shiga"
+
+#: .\alteernlingual_user\templates\registration\login.html:111
+msgid "Don't have an account? "
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:111
+msgid "Register here"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:112
+msgid "Terms of use."
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:113
+msgid "Privacy policy"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\signup.html:81
+msgid "Username"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\signup.html:105
+#, fuzzy
+#| msgid "Change password"
+msgid "Password"
+msgstr "Canza kalmar shiga"
+
+#: .\alteernlingual_user\templates\registration\signup.html:116
+msgid "Password Check"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\signup.html:129
+msgid " By clicking on Sign Up you agree to our"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\signup.html:129
+msgid "Terms of Service"
+msgstr ""

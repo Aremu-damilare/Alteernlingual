@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% load static %}
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+<header id="header" class="fixed-top  header-transparent ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <!--<h1><a href="index.html">Alteernlingual</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+         <a href="{% url 'home' %}"><img src="{% static 'img/s.jpg' %}" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="getstarted scrollto" href="{% url 'login' %}">Sign In</a></li>
+
+          <li><a class="nav-link scrollto" href=""></a></li>
+             <li class="dropdown" id="language-switcher">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="/" />
+
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="language" style="width: auto;" onchange="this.form.submit()">
+                      {% get_current_language as LANGUAGE_CODE %}
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}
+                      {% for language in languages %}
+
+                          <option 
+                            value="{{ language.code }}"
+                            {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}
+                            data-content='<img src="/static/img/flags/{{ language.code }}.png">
+                            <span style="display:inline-block; width:100px; padding-left: 10px; text-shadow:none">
+                              {{ language.name_local }}
+                              <!-- span style="color:#999;">&nbsp;[{{ language.code }}]</span -->
+                            </span>'>
+                            {{ language.name_local }} {{ language.code }}
+                          </option>
+
+                      {% endfor %}
+                    </select>
+                </form>
+    </li>
+        </ul>
+<i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+<br><br>
+
+
+<section id="faq" class="faq section-bg" style="background-color: white;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                <p>  
+                                    {% if msg %}
+                                        {{ msg | safe }}
+                                    {% else %}
+                                        Fill the forms below
+                                    {% endif %}                                     
+                                </p>    
+                <form method="post" action="">
+                            
+                                {% csrf_token %}
+
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <label for="email">{% trans "Username" %}</label>
+                                    <div class="input-group">
+                                       
+                                        {{ form.username }}
+                                    </div>
+                                    <span class="text-error">{{ form.username.errors }}</span>
+                                </div>
+                                <!-- End of Form -->
+
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <label for="email">{% trans "Your Email" %}</label>
+                                    <div class="input-group">
+                                       
+                                        {{ form.email }}
+                                    </div>
+                                    <span class="text-error">{{ form.email.errors }}</span>
+                                </div>
+                                <!-- End of Form -->
+
+                                <div class="form-group">
+
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label for="password">{% trans "Password" %}</label>
+                                        <div class="input-group">
+                                            
+                                            {{ form.password1 }}
+                                        </div>  
+                                        <span class="text-error">{{ form.password1.errors }}</span>
+                                    </div>
+                                    <!-- End of Form -->
+
+                                    <!-- Form -->
+                                    <div class="form-group mb-4">
+                                        <label for="password">{% trans "Password Check" %}</label>
+                                        <div class="input-group">
+                                          
+                                            {{ form.password2 }}
+                                        </div>  
+                                        <span class="text-error">{{ form.password2.errors }}</span>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                         <a class="small text-muted" href="{% url 'password_reset' %}">Forgot password?</a>
+                                        <div class="form-check">
+                                            <!-- <input class="form-check-input" type="checkbox" value="" id="defaultCheck5"> -->
+                                            <label class="form-check-label" for="defaultCheck5">
+                                            {% trans " By clicking on Sign Up you agree to our" %}  <a href=""> {% trans "Terms of Service" %}</a>
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <button type="submit" name="register" class="btn btn-block btn-primary">Sign Up</button>
+                            </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="{% static 'img/draw1.png' %}" class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load static %}
+
+{% load i18n %}
+
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top  header-transparent ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <!--<h1><a href="index.html">Alteernlingual</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+         <a href="{% url 'home' %}"><img src="{% static 'img/s.jpg' %}" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          
+          <li><a class="nav-link scrollto" href="#features">{% trans "Features" %}</a></li>
+          <li><a class="nav-link scrollto" href="#faq">{% trans "F.A.Q" %}</a></li>
+         
+          <li><a class="nav-link scrollto" href="#contact">{% trans "Contact" %}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'login' %}">{% trans "Get Started" %}</a></li>
+
+          <li><a class="nav-link scrollto" href=""></a></li>
+             <li class="dropdown" id="language-switcher">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="/" />
+
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="language" style="width: auto;" onchange="this.form.submit()">
+                      {% get_current_language as LANGUAGE_CODE %}
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}
+                      {% for language in languages %}
+
+                          <option 
+                            value="{{ language.code }}"
+                            {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}
+                            data-content='<img src="/static/img/flags/{{ language.code }}.png">
+                            <span style="display:inline-block; width:100px; padding-left: 10px; text-shadow:none">
+                              {{ language.name_local }}
+                              <!-- span style="color:#999;">&nbsp;[{{ language.code }}]</span -->
+                            </span>'>
+                            {{ language.name_local }} {{ language.code }}
+                          </option>
+
+                      {% endfor %}
+                    </select>
+                </form>
+    </li>
+        </ul>
+        
+        
+
+<i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->

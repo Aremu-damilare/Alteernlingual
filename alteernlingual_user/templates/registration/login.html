@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% load static %}
+
+
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+<header id="header" class="fixed-top  header-transparent ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <!--<h1><a href="index.html">Alteernlingual</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+         <a href="{% url 'home' %}"><img src="{% static 'img/s.jpg' %}" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="getstarted scrollto" href="{% url 'signup' %}">Sign Up</a></li>
+
+          <li><a class="nav-link scrollto" href=""></a></li>
+             <li class="dropdown" id="language-switcher">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="/" />
+
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="language" style="width: auto;" onchange="this.form.submit()">
+                      {% get_current_language as LANGUAGE_CODE %}
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}
+                      {% for language in languages %}
+
+                          <option 
+                            value="{{ language.code }}"
+                            {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}
+                            data-content='<img src="/static/img/flags/{{ language.code }}.png">
+                            <span style="display:inline-block; width:100px; padding-left: 10px; text-shadow:none">
+                              {{ language.name_local }}
+                              <!-- span style="color:#999;">&nbsp;[{{ language.code }}]</span -->
+                            </span>'>
+                            {{ language.name_local }} {{ language.code }}
+                          </option>
+
+                      {% endfor %}
+                    </select>
+                </form>
+    </li>
+        </ul>
+<i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+
+<section id="faq" class="faq section-bg" style="background-color: white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="{% static 'img/img1.jpg' %}"
+                alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                  {% if form.non_field_errors %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      {% for error in form.non_field_errors %}
+                        <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+                      {% endfor %}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  {% endif %}
+
+                <form method="post">
+                       {% csrf_token %}
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">{% trans "Sign into your account" %}</h5>
+
+                  <div class="form-outline mb-4">
+                    <input type="hidden" name="next" value="{{ next }}">
+                      {{ form.username|as_crispy_field }}
+                      {{ form.password|as_crispy_field }}
+                  </div>
+
+                  <!-- <div class="form-outline mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                    <label class="form-label" for="form2Example27">Password</label>
+                  </div> -->
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">{% trans "Login" %}</button>
+                  </div>
+
+                  <a class="small text-muted" href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">{% trans "Don't have an account? " %}<a href="{% url 'signup' %}" style="color: #393f81;">{% trans "Register here" %}</a></p>
+                  <a href="#!" class="small text-muted">{% trans "Terms of use." %}</a>
+                  <a href="#!" class="small text-muted">{% trans "Privacy policy" %}</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

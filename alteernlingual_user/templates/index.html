@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+{% load static %}
+
+    {% if user.is_authenticated %}
+      {% include './auth_user/userNav.html' %}
+    {% else %}
+     {% include 'guestHeader.html' %}
+    {% endif %}
+  <!-- ======= Hero Section ======= -->
+ 
+
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+          <div>
+            <h1>{% trans "The Language Learning Platform" %}</h1>
+            <h2>{% trans "Our ultimate goal is to give everyone access to a language learning experience through technology." %}</h2>
+            {% if user.is_authenticated %}
+     
+    {% else %}
+   <a href="{% url 'login' %}" class="download-btn"></i> {% trans "Login" %}</a>
+            <a href="{% url 'signup' %}" class="download-btn"></i> {% trans "Sign Up" %}</a>
+    {% endif %}
+            
+          </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+          <img src="{% static 'img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+ 
+
+  <main id="main">
+
+    <section id="gallery" class="gallery">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          </div>
+
+      </div>
+
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="gallery-slider swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href="assets/img/gallery/0.png" class="gallery-lightbox" data-gall="gallery-carousel"><img src="{% static 'img/gallery/0.png' %}" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a href="assets/img/gallery/1.png" class="gallery-lightbox" data-gall="gallery-carousel"><img src="{% static 'img/gallery/1.png' %}" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a href="assets/img/gallery/2.png" class="gallery-lightbox" data-gall="gallery-carousel"><img src="{% static 'img/gallery/2.png' %}" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a href="assets/img/gallery/3.png" class="gallery-lightbox" data-gall="gallery-carousel"><img src="{% static 'img/gallery/3.png' %}" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a href="assets/img/gallery/4.png" class="gallery-lightbox" data-gall="gallery-carousel"><img src="{% static 'img/gallery/4.png' %}" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a href="assets/img/gallery/6.png" class="gallery-lightbox" data-gall="gallery-carousel"><img src="{% static 'img/gallery/5.png' %}" class="img-fluid" alt=""></a></div>
+            
+     
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= App Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>{% trans "Our Features" %}</h2>
+          </div>
+
+        <div class="row no-gutters">
+          <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
+            <div class="content d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-md-6 icon-box" data-aos="fade-up">
+                  <i class="bx bx-receipt"></i>
+                  <h4>{% trans "Signup " %}</h4>
+                  <p>{% trans "Complete the few steps of registration and enjoy a free module! " %}</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>{% trans "Maintain a profile" %} </h4>
+                  <p>{% trans "You have your profile automatically set up upon signing up." %} </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-images"></i>
+                  <h4>{% trans "Choose language of interaction" %}</h4>
+                  <p>{% trans "Users get to select a language they understand by which they read along to learn another language (language of interest)." %} </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>{% trans "Choose language of interest" %}</h4>
+                  <p>{% trans "Language of interest is the language a user desires to learn at a given time. They appear in the original language texts with audio feedbacks. " %}</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-atom"></i>
+                  <h4>{% trans "Practice with audio feedbacks" %}</h4>
+                  <p>{% trans "Users can listen to the sounds of all visible texts in both languages – language of interaction and language of interest." %} </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                  <i class="bx bx-id-card"></i>
+                  <h4>{% trans "Learn anytime anywhere" %}</h4>
+                  <p>{% trans "Alteɘrnligual is available on both mobile and web so you can fit your language learning schedule to fit into your daily itinerary no matter where you are." %}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'img/features.svg' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End App Features Section -->
+
+    <!-- ======= Details Section ======= -->
+    <section id="details" class="details">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-md-4" data-aos="fade-right">
+            <img src="{% static 'img/details-1.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-4" data-aos="fade-up">
+            <h3>{% trans "High-quality resources" %}</h3>
+            <p>{% trans "We hold a list of carefully crafted resources. We have a team of in-house education professionals that are committed to optimizing the ways languages are taught and learnt."%}
+              {% trans "We currently have structured modules in Hausa, Igbo, Yoruba, English, and French languages." %} 
+            {% trans "  Each of the modules has been crafted to improve users’ reading, writing, listening, and speaking skills from beginners level through elementary, intermediate, upper intermediate, advanced to native speaker/proficiency level." %}
+            </p>
+           
+            <p>{% trans "You can follow the modules sequentially from start or skip to the stage you consider appropriately fit for you." %}
+               <br> {% trans "With our simplified and flexible modules, audio feedbacks, and partitioned interface features, we are confident users with little or no prior no knowledge can learn without difficulties." %}
+            </p>
+          </div>
+        </div>
+
+        <div class="row content">
+          <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+            <img src="{% static 'img/details-2.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+            <h3>{% trans "Practice with native speakers" %}</h3>
+            <p>{% trans "Our community enables users to link up with one another in order to maintain consistent practice with native speakers of their languages of interests. " %}
+            </p>
+            <p>
+              
+            </p>
+           
+          </div>
+        </div>
+
+       
+        </div>
+
+       
+        </div>
+
+      </div>
+    </section><!-- End Details Section -->
+
+    <!-- ======= Gallery Section ======= -->
+   <!-- End Gallery Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <<!-- End Testimonials Section -->
+
+    <!-- ======= Pricing Section ======= -->
+   <!-- End Pricing Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+
+          <h2>{% trans "Frequently Asked Questions" %}</h2>
+          
+        </div>
+
+        <div class="accordion-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1">{% trans "Is Alteernlingual free? " %}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                <p>{% trans "No. Users get to enjoy Alteɘrnligual services based on subscriptions." %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed">{% trans "Do I get a certificate after learning?" %} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                <p>{% trans "When users take exercises after completing a module, the grades and number of attempts are automatically recorded on users’ profile with printable feature." %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed">{% trans "What can I learn on Alteernlingual? " %}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                <p>{% trans " Users get to learn African and other international languages in structured ways using their knowledge of one language to learn another." %}
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed">{% trans "Is there a duration for one to finish learning a language?" %} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
+                <p>{% trans "Not exactly. However, the modules are spread to improve users’ reading, writing, listening, and speaking skills from beginners level through elementary, intermediate, upper intermediate, advanced to native speaker/proficiency level." %} <br>
+                  {% trans "Users can follow the modules sequentially from start or skip to the stage they consider appropriately fit for them." %}
+                </p>
+              </div>
+            </li>
+
+         
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Contact Section ======= -->
+  
+  <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% trans "Contact" %}</h2>
+          <p>{% trans "Please enter the details of your request. A member of our support staff will respond as soon as possible." %}
+
+          </p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+             <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-up">
+              <div class="form-group">
+                <input placeholder="Your Name" type="text" name="name" class="form-control" id="name" required>
+              </div>
+              <div class="form-group mt-3">
+                <input placeholder="Your Email" type="email" class="form-control" name="email" id="email" required>
+              </div>
+              <div class="form-group mt-3">
+                <input placeholder="Subject" type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea placeholder="Message" class="form-control" name="message" rows="5" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+          <div class="col-lg-6">
+           <div class="row">
+              <div class="col-lg-6 info">
+                <i class="bx bx-map"></i>
+                <h4>{% trans "Registered Address" %}</h4>
+                <p>{% trans "Lagos, Nigeria" %}</p>
+              </div>
+              <div class="col-lg-6 info">
+                <i class="bx bx-map"></i>
+                <h4>{% trans "Operation Office" %}</h4>
+                <p>{% trans "Abuja, Nigeria" %}</p>
+              </div>
+              <div class="col-lg-6 info">
+                <i class="bx bx-envelope"></i>
+                <h4>{% trans "Email Us" %}</h4>
+                <p>{% trans "contact@alteernlingual.com<br>info@alteernlingual.com" %}</p>
+              </div>
+              <div class="col-lg-6 info">
+                <i class="bx bx-time-five"></i>
+                <h4>{% trans "Working Hours" %}</h4>
+                <p>{% trans "Mon - Fri: 09:00hours – 17:00hours<br>Saturday: 10:00hours – 14:00hours" %}</p>     
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+{% include './welcomeScripts/arabic.html' %}              
+{% include './welcomeScripts/yoruba.html' %} 
+
+{% include './welcomeScripts/hausa.html' %}              
+{% include './welcomeScripts/english.html' %} 
+
+{% include './welcomeScripts/french.html' %}              
+{% include './welcomeScripts/yoruba.html' %} 
+
+{% include './welcomeScripts/igbo.html' %}              
+
+
+
+
+
+
+
+{% include 'footer.html' %}
+
+
+ {% endblock %}
