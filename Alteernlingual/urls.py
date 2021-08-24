@@ -30,8 +30,19 @@ urlpatterns = [
     path('accounts/signup/', views.register_request, name='signup'),
     path('accounts/logout/', views.logout_request, name='logout'),
     path('', include('alteernlingual_user.urls')),
+    path('topics/', include('Alteernlingual_topic.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
 
+    path('terms-of-service/', views.termsOfService, name='termsOfService'),
+    path('privacy-policy/', views.privacyPolicy, name='privacyPolicy'),
+    path('partner-with-us/', views.partnerWithUS, name='partnerWithUS'),
+    path('for-educators/', views.forEducators, name='forEducators'),
+    path('for-business/', views.forBusiness, name='forBusiness'),
+    path('careers/', views.careers, name='careers'),
+    path('our-approach/', views.ourApproach, name='ourApproach'),
+    path('alteernlingual-story/', views.alteernlingualStory, name='alteernlingualStory'),
+    path('blog/', views.blog, name='blog'),
 
     #social auth
     # path('social-auth/', include('social_django.urls', namespace="social")),

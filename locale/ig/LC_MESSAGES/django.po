@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 14:55+0100\n"
+"POT-Creation-Date: 2021-08-22 23:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\Alteernlingual\settings.py:116
+#: .\Alteernlingual\settings.py:120 .\alteernlingual_user\models.py:23
+#: .\alteernlingual_user\models.py:31
 msgid "English"
 msgstr ""
 
-#: .\Alteernlingual\settings.py:117
+#: .\Alteernlingual\settings.py:121 .\alteernlingual_user\models.py:24
+#: .\alteernlingual_user\models.py:32
 msgid "Igbo"
 msgstr ""
 
-#: .\Alteernlingual\settings.py:118
+#: .\Alteernlingual\settings.py:122
 msgid "hausa"
 msgstr ""
 
-#: .\Alteernlingual\settings.py:119
+#: .\Alteernlingual\settings.py:123 .\alteernlingual_user\models.py:26
+#: .\alteernlingual_user\models.py:34
 msgid "Yoruba"
 msgstr ""
 
-#: .\Alteernlingual\settings.py:120
+#: .\Alteernlingual\settings.py:124 .\alteernlingual_user\models.py:28
+#: .\alteernlingual_user\models.py:36
 msgid "Arabic"
 msgstr ""
 
-#: .\Alteernlingual\settings.py:121
+#: .\Alteernlingual\settings.py:125 .\alteernlingual_user\models.py:27
+#: .\alteernlingual_user\models.py:35
 msgid "French"
+msgstr ""
+
+#: .\Alteernlingual_topic\models.py:12
+msgid "title"
+msgstr ""
+
+#: .\Alteernlingual_topic\models.py:13
+msgid "description"
 msgstr ""
 
 #: .\alteernlingual_user\models.py:12
@@ -50,39 +63,43 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: .\alteernlingual_user\models.py:30
+#: .\alteernlingual_user\models.py:25 .\alteernlingual_user\models.py:33
+msgid "Hausa"
+msgstr ""
+
+#: .\alteernlingual_user\models.py:54
 msgid "Profile"
 msgstr ""
 
-#: .\alteernlingual_user\models.py:31
+#: .\alteernlingual_user\models.py:55
 msgid "Profiles"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:80
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:117
 msgid "I want to learn...."
 msgstr "Achọrọ m ịmụta ...."
 
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:85
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:122
 msgid "Alphabet"
 msgstr "Mkpụrụedemede"
 
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:96
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:133
 msgid "Proverbs"
 msgstr "Ilu"
 
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:98
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:135
 msgid "language proverbs and their meaning."
 msgstr "ilu asụsụ na ihe ha pụtara."
 
-#: .\alteernlingual_user\templates\auth_user\userNav.html:18
+#: .\alteernlingual_user\templates\auth_user\userNav.html:22
 msgid "Change password"
 msgstr "Gbanwee okwuntughe"
 
-#: .\alteernlingual_user\templates\auth_user\userNav.html:23
+#: .\alteernlingual_user\templates\auth_user\userNav.html:27
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: .\alteernlingual_user\templates\auth_user\userNav.html:25
+#: .\alteernlingual_user\templates\auth_user\userNav.html:29
 msgid "Logout"
 msgstr "Ọpụpụ"
 
@@ -103,47 +120,53 @@ msgid "Profile information"
 msgstr "Ozi profaịlụ"
 
 #: .\alteernlingual_user\templates\auth_user\userProfile.html:73
+msgid "language to Learn(LTL)"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:84
+#, fuzzy
+#| msgid "Choose language of interaction"
+msgid "Language of Interaction(LOI)"
+msgstr "Họrọ asụsụ mmekọrịta"
+
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:96
 msgid "First Name"
 msgstr "Aha mbụ"
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:81
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:104
 msgid "Last Name"
 msgstr "Aha ikpeazụ"
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:90
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:113
 msgid "Birthday"
 msgstr "Ụbọchị ọmụmụ"
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:98
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:121
 msgid "Gender"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:112
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:136
 msgid "Email"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:119
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:143
 msgid "Phone"
 msgstr "Ekwentị"
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:125
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:129
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:149
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:153
 msgid "Address"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:136
-msgid "Number"
-msgstr ""
-
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:145
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:163
 msgid "City"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:152
-msgid "ZIP"
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:171
+msgid "country"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:159
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:178
 msgid "Save All"
 msgstr ""
 
@@ -159,28 +182,83 @@ msgstr ""
 msgid "Useful Links"
 msgstr ""
 
+#: .\alteernlingual_user\templates\footer.html:36
+msgid "Home"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:37
+msgid "Alteernlingual Story"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:38
+msgid "Our Approach"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:39
+#: .\alteernlingual_user\templates\registration\signup.html:129
+msgid "Terms of Service"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:40
+msgid "Privacy Policy"
+msgstr ""
+
 #: .\alteernlingual_user\templates\footer.html:45
 msgid "Discover"
 msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:47
+msgid "For Educators"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:48
+msgid "For Bussinesses"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:49
+msgid "Careers"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:50
+msgid "Blog"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:51
+#, fuzzy
+#| msgid "What can I learn on Alteernlingual? "
+msgid "Partner with Alteernlingual"
+msgstr "Kedu ihe m nwere ike ịmụta na Alteernlingual?"
 
 #: .\alteernlingual_user\templates\footer.html:56
 msgid "Our Social Networks"
 msgstr ""
 
-#: .\alteernlingual_user\templates\guestHeader.html:18
+#: .\alteernlingual_user\templates\footer.html:73
+msgid " Copyright "
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:73
+msgid "All Rights Reserved"
+msgstr ""
+
+#: .\alteernlingual_user\templates\footer.html:80
+msgid "Designed by  "
+msgstr ""
+
+#: .\alteernlingual_user\templates\guestHeader.html:41
 msgid "Features"
 msgstr "Atụmatụ"
 
-#: .\alteernlingual_user\templates\guestHeader.html:19
+#: .\alteernlingual_user\templates\guestHeader.html:42
 msgid "F.A.Q"
 msgstr ""
 
-#: .\alteernlingual_user\templates\guestHeader.html:21
-#: .\alteernlingual_user\templates\index.html:229
+#: .\alteernlingual_user\templates\guestHeader.html:44
+#: .\alteernlingual_user\templates\index.html:234
 msgid "Contact"
 msgstr "Kpọtụrụ"
 
-#: .\alteernlingual_user\templates\guestHeader.html:22
+#: .\alteernlingual_user\templates\guestHeader.html:45
 msgid "Get Started"
 msgstr "Malite"
 
@@ -196,40 +274,40 @@ msgstr ""
 "Ebumnuche anyị kachasị bụ inye onye ọ bụla ohere ịnweta ahụmịhe mmụta asụsụ "
 "site na teknụzụ."
 
-#: .\alteernlingual_user\templates\index.html:22
-#: .\alteernlingual_user\templates\registration\login.html:107
+#: .\alteernlingual_user\templates\index.html:25
+#: .\alteernlingual_user\templates\registration\login.html:108
 msgid "Login"
 msgstr "Banye"
 
-#: .\alteernlingual_user\templates\index.html:23
+#: .\alteernlingual_user\templates\index.html:26
 msgid "Sign Up"
 msgstr "Debanye aha"
 
-#: .\alteernlingual_user\templates\index.html:68
+#: .\alteernlingual_user\templates\index.html:73
 msgid "Our Features"
 msgstr "Atụmatụ anyị"
 
-#: .\alteernlingual_user\templates\index.html:77
+#: .\alteernlingual_user\templates\index.html:82
 msgid "Signup "
 msgstr "Debanye aha"
 
-#: .\alteernlingual_user\templates\index.html:78
+#: .\alteernlingual_user\templates\index.html:83
 msgid "Complete the few steps of registration and enjoy a free module! "
 msgstr "Mezue usoro ndebanye aha ole na ole wee nwee anụrị modul n'efu!"
 
-#: .\alteernlingual_user\templates\index.html:82
+#: .\alteernlingual_user\templates\index.html:87
 msgid "Maintain a profile"
 msgstr "Debe profaịlụ"
 
-#: .\alteernlingual_user\templates\index.html:83
+#: .\alteernlingual_user\templates\index.html:88
 msgid "You have your profile automatically set up upon signing up."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:87
+#: .\alteernlingual_user\templates\index.html:92
 msgid "Choose language of interaction"
 msgstr "Họrọ asụsụ mmekọrịta"
 
-#: .\alteernlingual_user\templates\index.html:88
+#: .\alteernlingual_user\templates\index.html:93
 msgid ""
 "Users get to select a language they understand by which they read along to "
 "learn another language (language of interest)."
@@ -237,11 +315,11 @@ msgstr ""
 "Ndị ọrụ ga -ahọrọ asụsụ ha ghọtara nke ha ji agụ ya wee mụta asụsụ ọzọ "
 "(asụsụ mmasị)."
 
-#: .\alteernlingual_user\templates\index.html:92
+#: .\alteernlingual_user\templates\index.html:97
 msgid "Choose language of interest"
 msgstr "Họrọ asụsụ nwere mmasị"
 
-#: .\alteernlingual_user\templates\index.html:93
+#: .\alteernlingual_user\templates\index.html:98
 msgid ""
 "Language of interest is the language a user desires to learn at a given "
 "time. They appear in the original language texts with audio feedbacks. "
@@ -249,45 +327,45 @@ msgstr ""
 "Asụsụ nke mmasị bụ asụsụ onye ọrụ na -achọ ịmụta n'oge enyere ya. Ha pụtara "
 "na ederede asụsụ izizi nwere nzaghachi olu."
 
-#: .\alteernlingual_user\templates\index.html:97
+#: .\alteernlingual_user\templates\index.html:102
 msgid "Practice with audio feedbacks"
 msgstr "Omume na nzaghachi ọdịyo"
 
-#: .\alteernlingual_user\templates\index.html:98
+#: .\alteernlingual_user\templates\index.html:103
 msgid ""
 "Users can listen to the sounds of all visible texts in both languages – "
 "language of interaction and language of interest."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:102
+#: .\alteernlingual_user\templates\index.html:107
 msgid "Learn anytime anywhere"
 msgstr "Mụta oge ọ bụla ebe ọ bụla"
 
-#: .\alteernlingual_user\templates\index.html:103
+#: .\alteernlingual_user\templates\index.html:108
 msgid ""
 "Alteɘrnligual is available on both mobile and web so you can fit your "
 "language learning schedule to fit into your daily itinerary no matter where "
 "you are."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:125
+#: .\alteernlingual_user\templates\index.html:130
 msgid "High-quality resources"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:126
+#: .\alteernlingual_user\templates\index.html:131
 msgid ""
 "We hold a list of carefully crafted resources. We have a team of in-house "
 "education professionals that are committed to optimizing the ways languages "
 "are taught and learnt."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:127
+#: .\alteernlingual_user\templates\index.html:132
 msgid ""
 "We currently have structured modules in Hausa, Igbo, Yoruba, English, and "
 "French languages."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:128
+#: .\alteernlingual_user\templates\index.html:133
 msgid ""
 "  Each of the modules has been crafted to improve users’ reading, writing, "
 "listening, and speaking skills from beginners level through elementary, "
@@ -295,67 +373,67 @@ msgid ""
 "level."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:131
+#: .\alteernlingual_user\templates\index.html:136
 msgid ""
 "You can follow the modules sequentially from start or skip to the stage you "
 "consider appropriately fit for you."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:132
+#: .\alteernlingual_user\templates\index.html:137
 msgid ""
 "With our simplified and flexible modules, audio feedbacks, and partitioned "
 "interface features, we are confident users with little or no prior no "
 "knowledge can learn without difficulties."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:142
+#: .\alteernlingual_user\templates\index.html:147
 msgid "Practice with native speakers"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:143
+#: .\alteernlingual_user\templates\index.html:148
 msgid ""
 "Our community enables users to link up with one another in order to maintain "
 "consistent practice with native speakers of their languages of interests. "
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:176
+#: .\alteernlingual_user\templates\index.html:181
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:183
+#: .\alteernlingual_user\templates\index.html:188
 msgid "Is Alteernlingual free? "
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:185
+#: .\alteernlingual_user\templates\index.html:190
 msgid "No. Users get to enjoy Alteɘrnligual services based on subscriptions."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:191
+#: .\alteernlingual_user\templates\index.html:196
 msgid "Do I get a certificate after learning?"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:193
+#: .\alteernlingual_user\templates\index.html:198
 msgid ""
 "When users take exercises after completing a module, the grades and number "
 "of attempts are automatically recorded on users’ profile with printable "
 "feature."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:199
+#: .\alteernlingual_user\templates\index.html:204
 msgid "What can I learn on Alteernlingual? "
 msgstr "Kedu ihe m nwere ike ịmụta na Alteernlingual?"
 
-#: .\alteernlingual_user\templates\index.html:201
+#: .\alteernlingual_user\templates\index.html:206
 msgid ""
 " Users get to learn African and other international languages in structured "
 "ways using their knowledge of one language to learn another."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:207
+#: .\alteernlingual_user\templates\index.html:212
 msgid "Is there a duration for one to finish learning a language?"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:209
+#: .\alteernlingual_user\templates\index.html:214
 msgid ""
 "Not exactly. However, the modules are spread to improve users’ reading, "
 "writing, listening, and speaking skills from beginners level through "
@@ -363,78 +441,82 @@ msgid ""
 "proficiency level."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:210
+#: .\alteernlingual_user\templates\index.html:215
 msgid ""
 "Users can follow the modules sequentially from start or skip to the stage "
 "they consider appropriately fit for them."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:230
+#: .\alteernlingual_user\templates\index.html:235
 msgid ""
 "Please enter the details of your request. A member of our support staff will "
 "respond as soon as possible."
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:264
+#: .\alteernlingual_user\templates\index.html:269
 msgid "Registered Address"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:265
+#: .\alteernlingual_user\templates\index.html:270
 msgid "Lagos, Nigeria"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:269
+#: .\alteernlingual_user\templates\index.html:274
 msgid "Operation Office"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:270
+#: .\alteernlingual_user\templates\index.html:275
 msgid "Abuja, Nigeria"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:274
+#: .\alteernlingual_user\templates\index.html:279
 msgid "Email Us"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:275
+#: .\alteernlingual_user\templates\index.html:280
 msgid "contact@alteernlingual.com<br>info@alteernlingual.com"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:279
+#: .\alteernlingual_user\templates\index.html:284
 msgid "Working Hours"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:280
+#: .\alteernlingual_user\templates\index.html:285
 msgid "Mon - Fri: 09:00hours – 17:00hours<br>Saturday: 10:00hours – 14:00hours"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\login.html:93
+#: .\alteernlingual_user\templates\registration\login.html:94
 msgid "Sign into your account"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\login.html:110
+#: .\alteernlingual_user\templates\registration\login.html:111
 #, fuzzy
 #| msgid "Change password"
 msgid "Forgot password?"
 msgstr "Gbanwee okwuntughe"
 
-#: .\alteernlingual_user\templates\registration\login.html:111
+#: .\alteernlingual_user\templates\registration\login.html:112
 msgid "Don't have an account? "
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\login.html:111
+#: .\alteernlingual_user\templates\registration\login.html:112
 msgid "Register here"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\login.html:112
+#: .\alteernlingual_user\templates\registration\login.html:113
 msgid "Terms of use."
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\login.html:113
+#: .\alteernlingual_user\templates\registration\login.html:114
 msgid "Privacy policy"
 msgstr ""
 
 #: .\alteernlingual_user\templates\registration\signup.html:81
 msgid "Username"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\signup.html:92
+msgid "Your Email"
 msgstr ""
 
 #: .\alteernlingual_user\templates\registration\signup.html:105
@@ -449,8 +531,4 @@ msgstr ""
 
 #: .\alteernlingual_user\templates\registration\signup.html:129
 msgid " By clicking on Sign Up you agree to our"
-msgstr ""
-
-#: .\alteernlingual_user\templates\registration\signup.html:129
-msgid "Terms of Service"
 msgstr ""

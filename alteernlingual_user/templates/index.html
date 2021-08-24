@@ -18,7 +18,7 @@
         <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
           <div>
             <h1>{% trans "The Language Learning Platform" %}</h1>
-            <h2>{% trans "Our ultimate goal is to give everyone access to a language learning experience through technology." %}</h2>
+            <h2>{% trans "Our ultimate goal is to give everyone access to a language learning experience through technology" %}.</h2>
             {% if user.is_authenticated %}
      
     {% else %}
@@ -127,7 +127,7 @@
             <img src="{% static 'img/details-1.png' %}" class="img-fluid" alt="">
           </div>
           <div class="col-md-8 pt-4" data-aos="fade-up">
-            <h3>{% trans "High-quality resources" %}</h3>
+            <h3>{% trans " High-quality resources " %}</h3>
             <p>{% trans "We hold a list of carefully crafted resources. We have a team of in-house education professionals that are committed to optimizing the ways languages are taught and learnt."%}
               {% trans "We currently have structured modules in Hausa, Igbo, Yoruba, English, and French languages." %} 
             {% trans "  Each of the modules has been crafted to improve users’ reading, writing, listening, and speaking skills from beginners level through elementary, intermediate, upper intermediate, advanced to native speaker/proficiency level." %}
@@ -144,8 +144,8 @@
             <img src="{% static 'img/details-2.png' %}" class="img-fluid" alt="">
           </div>
           <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-            <h3>{% trans "Practice with native speakers" %}</h3>
-            <p>{% trans "Our community enables users to link up with one another in order to maintain consistent practice with native speakers of their languages of interests. " %}
+            <h3>{% trans " Practice with native speakers " %}</h3>
+            <p>{% trans " Our community enables users to link up with one another in order to maintain consistent practice with native speakers of their languages of interests " %}.
             </p>
             <p>
               
@@ -201,7 +201,7 @@
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed">{% trans "What can I learn on Alteernlingual? " %}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed">{% trans "What can I learn on Alteernlingual " %}?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                 <p>{% trans " Users get to learn African and other international languages in structured ways using their knowledge of one language to learn another." %}
                 </p>
@@ -209,7 +209,7 @@
             </li>
 
             <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed">{% trans "Is there a duration for one to finish learning a language?" %} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed">{% trans "Is there a duration for one to finish learning a language" %}? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
                 <p>{% trans "Not exactly. However, the modules are spread to improve users’ reading, writing, listening, and speaking skills from beginners level through elementary, intermediate, upper intermediate, advanced to native speaker/proficiency level." %} <br>
                   {% trans "Users can follow the modules sequentially from start or skip to the stage they consider appropriately fit for them." %}
@@ -294,17 +294,35 @@
     </section><!-- End Contact Section -->
   </main><!-- End #main -->
 
-{% include './welcomeScripts/arabic.html' %}              
-{% include './welcomeScripts/yoruba.html' %} 
+              {% get_current_language as LANGUAGE_CODE %}
 
-{% include './welcomeScripts/hausa.html' %}              
-{% include './welcomeScripts/english.html' %} 
+                  {% if LANGUAGE_CODE == 'ar' %} 
+              {% include './welcomeScripts/arabic.html' %}              
+                  {% endif %}
 
-{% include './welcomeScripts/french.html' %}              
-{% include './welcomeScripts/yoruba.html' %} 
+                   {% if LANGUAGE_CODE == 'yo' %} 
+                  {% include './welcomeScripts/yoruba.html' %} 
+                  {% endif %}
 
-{% include './welcomeScripts/igbo.html' %}              
+                   {% if LANGUAGE_CODE == 'ha' %} 
+                  {% include './welcomeScripts/hausa.html' %}      
+                  {% endif %}
 
+                  {% if LANGUAGE_CODE == 'en' %} 
+                  {% include './welcomeScripts/english.html' %} 
+                  {% endif %}
+
+                  {% if LANGUAGE_CODE == 'fr' %} 
+                  {% include './welcomeScripts/french.html' %}   
+                  {% endif %}
+
+                  {% if LANGUAGE_CODE == 'yo' %} 
+                  {% include './welcomeScripts/yoruba.html' %} 
+                  {% endif %}
+
+                  {% if LANGUAGE_CODE == 'ig' %} 
+                  {% include './welcomeScripts/igbo.html' %}              
+                  {% endif %}
 
 
 

@@ -11,19 +11,7 @@
         <!-- Uncomment below if you prefer to use an image logo -->
          <a href="{% url 'home' %}"><img src="{% static 'img/s.jpg' %}" alt="" class="img-fluid"></a>
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          
-          <li><a class="nav-link scrollto" href="#features">{% trans "Features" %}</a></li>
-          <li><a class="nav-link scrollto" href="#faq">{% trans "F.A.Q" %}</a></li>
-         
-          <li><a class="nav-link scrollto" href="#contact">{% trans "Contact" %}</a></li>
-          <li><a class="getstarted scrollto" href="{% url 'login' %}">{% trans "Get Started" %}</a></li>
-
-          <li><a class="nav-link scrollto" href=""></a></li>
-             <li class="dropdown" id="language-switcher">
-                <form action="{% url 'set_language' %}" method="post">
+ <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="/" />
 
@@ -47,7 +35,16 @@
                       {% endfor %}
                     </select>
                 </form>
-    </li>
+      <nav id="navbar" class="navbar">
+        <ul>
+          
+          <li><a class="nav-link scrollto" href="#features">{% trans "Features" %}</a></li>
+          <li><a class="nav-link scrollto" href="#faq">{% trans "F.A.Q" %}</a></li>
+         
+          <li><a class="nav-link scrollto" href="#contact">{% trans "Contact" %}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'login' %}">{% trans "Get Started" %}</a></li>
+
+          
         </ul>
         
         

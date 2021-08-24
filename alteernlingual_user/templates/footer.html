@@ -33,22 +33,22 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>{% trans "Useful Links"%}</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Alteernlingual Story</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Our Approach</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of Service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy Policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">{% trans "Home" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'alteernlingualStory' %}">{% trans "Alteernlingual Story" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'ourApproach' %}">{% trans "Our Approach" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'termsOfService' %}">{% trans "Terms of Service" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'privacyPolicy' %}">{% trans "Privacy Policy" %}</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>{% trans "Discover"%} Alteernlingual</h4>
+            <h4>{% trans "Discover" %} Alteernlingual</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">For Educators</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">For Bussinesses</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Careers</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Alteernlingual Blog</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Partner with Alteernlingual</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'forEducators' %}">{% trans "For Educators" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'forBusiness' %}">{% trans "For Bussinesses" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'careers' %}">{% trans "Careers" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog' %}">Alteernlingual {% trans "Blog" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'partnerWithUS' %}">{% trans "Partner with Alteernlingual" %}</a></li>
             </ul>
           </div>
 
@@ -70,14 +70,14 @@
 
     <div class="container py-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Alteernlingual</span></strong>. All Rights Reserved
+        &copy;{% trans " Copyright " %}<strong><span>Alteernlingual</span></strong>. {% trans "All Rights Reserved" %}
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-app-landing-page-template/ -->
-        Designed by <a href="https://thecorporatenerds.com/">The Corporate Nerds</a>
+        {% trans "Designed by  " %}<a href="https://thecorporatenerds.com/">The Corporate Nerds</a>
       </div>
     </div>
   </footer><!-- End Footer -->

@@ -13,18 +13,42 @@ class Profile(models.Model):
         (GENDER_FEMALE, _("Female")),
     ]
 
+    EN = 1
+    IG = 2
+    HA = 3
+    YO = 4
+    FR = 5
+    AR = 6
+    LTL_CHOICES = [
+        (EN, _("English")),
+        (IG, _("Igbo")),
+        (HA, _("Hausa")),
+        (YO, _("Yoruba")),
+        (FR, _("French")),
+        (AR, _("Arabic")),
+    ]
+    LOI_CHOICES = [
+        (EN, _("English")),
+        (IG, _("Igbo")),
+        (HA, _("Hausa")),
+        (YO, _("Yoruba")),
+        (FR, _("French")),
+        (AR, _("Arabic")),
+    ]
+
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to="profiles/avatars/", null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
     gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, null=True, blank=True)
     phone = models.CharField(max_length=32, null=True, blank=True)
     address = models.CharField(max_length=255, null=True, blank=True)
-    number = models.CharField(max_length=32, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
-    zip = models.CharField(max_length=30, null=True, blank=True)
-
+    country = models.CharField(max_length=50, null=True, blank=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    ltl = models.PositiveSmallIntegerField(choices=LTL_CHOICES, null=True, blank=True, default=EN)
+    loi = models.PositiveSmallIntegerField(choices=LOI_CHOICES, null=True, blank=True, default=EN)
 
     class Meta:
         verbose_name = _('Profile')
@@ -34,13 +58,4 @@ class Profile(models.Model):
     def get_avatar(self):
         return self.avatar.url if self.avatar else static('img/user-thumb-lg.png')
 
-
-# @receiver(post_save, sender=User)
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.profile.save()
 

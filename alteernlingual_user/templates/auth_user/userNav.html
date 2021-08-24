@@ -24,6 +24,7 @@
           </li>
 
     </li>
+          <li><a class="nav-link scrollto" href="{% url 'lessons' %}">{% trans "Lessons" %}</a></li>
           <li><a class="nav-link scrollto" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a></li>
           {% if user.is_authenticated %}
           <li><a class="nav-link scrollto active" href="{% url 'logout' %}">{% trans "Logout" %}</a></li>

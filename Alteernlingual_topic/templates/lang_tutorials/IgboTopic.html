@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+{% include '../auth_user/userNav.html' %}
+
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+ 
+<section id="hero" class="d-flex align-items-center">
+     <!-- tablet -->
+         <img src="{% static 'img/pngegg.png' %}" height="200px" class="d-none d-sm-block d-md-none">
+      <div class="container" data-aos="fade-up" >
+            <!-- mobile -->
+        <img src="{% static 'img/pngeggmobile.png' %}" height="200px" class="d-block d-sm-none">
+                <div class="col-12"> 
+        <!-- desktop -->
+        <img src="{% static 'img/pngegg.png' %}" height="200px" align="right" class="d-none d-lg-block">
+
+
+                                {% if user.profile.ltl == 2 %}
+                                {% for topic in IgboTopic %}
+                                
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ topic.Igbo_title | safe}}</h5>
+                            <p class="card-text">{{ topic.Igbo_explanations }}</p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">
+                                {% if user.profile.loi == 1 %}
+                                    {{ topic.EN_title | safe}}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 2 %}
+                                    {{ topic.IG_title | safe }}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 3 %}
+                                    {{ topic.HA_title | safe}}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 4 %}
+                                    {{ topic.YO_title | safe}}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 5 %}
+                                    {{ topic.FR_title | safe}}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 6 %}
+                                    {{ topic.AR_title | safe}}
+                                    {% endif %}
+                            </h5>
+                            <p class="card-text">
+                                
+                                {% if user.profile.loi == 1 %}
+                                    {{ topic.en_explanations }}
+                                    {% endif %}
+
+                                    {% if user.pexplanationsrofile.loi == 2 %}
+                                    {{ topic.ig_explanations }}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 3 %}
+                                    {{ topic.ha_explanations }}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 4 %}
+                                    {{ topic.yo_explanations }}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 5 %}
+                                    {{ topic.fr_explanations }}
+                                    {% endif %}
+
+                                    {% if user.profile.loi == 6 %}
+                                    {{ topic.ar_explanations }}
+                                    {% endif %}
+
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    {% endfor %}
+                    {% endif %}
+
+ {% if is_paginated %}
+  <nav aria-label="Page navigation conatiner"></nav>
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+    {% endif %}
+  </ul>
+  </nav>
+</div>
+{% endif %}
+
+
+
+    
+        </div>
+                        
+    </section><!-- End Frequently Asked Questions Section -->
+ 
+{% include '../auth_user/auth_footer.html' %}
+
+{% endblock %}

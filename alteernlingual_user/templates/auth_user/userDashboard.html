@@ -8,13 +8,13 @@
 
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
 
-
-
  <section id="hero" class="d-flex align-items-center">
+
       <div class="container" data-aos="fade-up" >
+       
+            
        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 
-                
            <div class="col-12 col-lg-6 mb-4">
                         <div class="card border-light shadow-sm">
                             <div class="card-header border-bottom border-light">
@@ -28,12 +28,24 @@
                                     <div class="col">
                                         <div class="progress-wrapper">
                                             <div class="progress-info">
-                                                <div class="h6 mb-0">Learning progress track</div>
-                                                <div class="small font-weight-bold text-dark"><span>60 %</span></div>
+                                                <div class="h6 mb-0">Learning progress track:</div>
+                                                <!-- <div class="small font-weight-bold text-dark"><span>5 %</span></div> -->
                                             </div>
-                                            <div class="progress mb-0">
-                                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                            <!-- <div class="progress mb-0">
+                                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
+
                                             </div>
+                                             -->
+                                             {% for i in profile %}
+                                             {{ i }}
+                                             {%endfor%}
+
+            <h6>(EN): {{ EN_Percent }} %</h6>
+            <h6>(IG): {{ IG_Percent }} %</h6>
+            <h6>(HA): {{ HA_Percent }} %</h6>
+            <h6>(YO): {{ YO_Percent }} %</h6>
+            <h6>(FR): {{ FR_Percent }} %</h6>
+            <h6>(AR): {{ AR_Percent }} %</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -41,8 +53,9 @@
                               
                         </div>
                     </div>
-<br>
-                    <div class="card border-light shadow-sm">
+
+<br><br>
+ <div class="card border-light shadow-sm">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between border-bottom border-light pb-3">
                                 <div>
@@ -55,8 +68,27 @@
                             <div class="d-flex align-items-center justify-content-between border-bottom border-light py-3">
                                 <div>
                                     <h6 class="mb-0"><span class="icon icon-xs mr-3"><span class="fas fa-flag-usa"></span></span>Language of Interest</h6>
-                                    <div class="small card-stats">None selected<span class="icon icon-xs text-success ml-2"><span class="fas fa-angle-up"></span></span></div>
-                                </div>
+
+                                    {% if user.profile.ltl == 1 %}
+                    <div class="small card-stats">English<span class="icon icon-xs text-success ml-2">
+                                    {% endif %}
+                                    {% if user.profile.ltl == 2 %}
+                    <div class="small card-stats">Igbo<span class="icon icon-xs text-success ml-2">
+                                    {% endif %}
+                                    {% if user.profile.ltl == 3 %}
+                    <div class="small card-stats">Hausa<span class="icon icon-xs text-success ml-2">
+                                    {% endif %}
+                                    {% if user.profile.ltl == 4 %}
+                    <div class="small card-stats">Yoruba<span class="icon icon-xs text-success ml-2">
+                                    {% endif %}
+                                    {% if user.profile.ltl == 5 %}
+                    <div class="small card-stats">French<span class="icon icon-xs text-success ml-2">
+                                    {% endif %}
+                                    {% if user.profile.ltl == 6 %}
+                    <div class="small card-stats">Arabic<span class="icon icon-xs text-success ml-2">
+                                    {% endif %}
+                                        <span class="fas fa-angle-up"></span><a href="{% url 'profile'  %}#LTL">&nbsp;change</a></span></div>
+                                </div> 
                                 <div>
                                     <a href="#" class="text-primary font-weight-bold"><span class="fas fa-chart-line ml-2"></span></a>
                                 </div>
@@ -64,7 +96,27 @@
                             <div class="d-flex align-items-center justify-content-between pt-3">
                                 <div>
                                     <h6 class="mb-0"><span class="icon icon-xs mr-3"><span class="fas fa-folder-open"></span></span>Language to Learn</h6>
-                                    <a href="#" class="small card-stats">None selected</a>
+
+                                     {% if user.profile.loi == 1 %}
+                                        <a href="#" class="small card-stats">English</a>
+                                    {% endif %}
+                                    {% if user.profile.loi == 2 %}
+                                        <a href="#" class="small card-stats">Igbo</a>
+                                    {% endif %}
+                                    {% if user.profile.loi == 3 %}
+                                        <a href="#" class="small card-stats">Hausa</a>
+                                    {% endif %}
+                                    {% if user.profile.loi == 4 %}
+                                        <a href="#" class="small card-stats">Yoruba</a>
+                                    {% endif %}
+                                    {% if user.profile.loi == 5 %}
+                                        <a href="#" class="small card-stats">French</a>
+                                    {% endif %}
+                                    {% if user.profile.loi == 6 %}
+                                        <a href="#" class="small card-stats">Arabic</a>
+                                    {% endif %}
+                                    &nbsp;<span class="fas fa-angle-up"></span><a href="{% url 'profile'  %}#LTL">&nbsp;change</a>
+
                                 </div>
                                 <div>
                                     <a href="#" class="text-primary font-weight-bold"><span class="fas fa-chart-line ml-2"></span></a>
@@ -72,38 +124,17 @@
                             </div>
                         </div>
                     </div>
-<br><br>
-         <div class="container">
-        <h1 data-aos="fade-up"><span class="fas fa-chart-line"></span> &nbsp;{% trans "I want to learn...." %} </h1> <br><br>
-      <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{% trans "Alphabet" %}</h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a href="#" class="btn btn-primary">Start</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{% trans "Proverbs" %}</h5>
-        <p class="card-text">
-          {% trans "language proverbs and their meaning." %}
-        </p>
-        <a href="#" class="btn btn-primary">Start</a>
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
+
+
+
+
+
             </div>
         </div>
                         
     </section><!-- End Frequently Asked Questions Section -->
  
+{% include './auth_footer.html' %}
+
 
 {% endblock %}

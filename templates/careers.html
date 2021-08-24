@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+{% load static %}
+
+    {% if user.is_authenticated %}
+      {% include './auth_user/userNav.html' %}
+    {% else %}
+     {% include 'guestHeader.html' %}
+    {% endif %}
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+        <h1> Careers </h1>
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+
+
+
+{% include 'footer.html' %}
+
+
+ {% endblock %}

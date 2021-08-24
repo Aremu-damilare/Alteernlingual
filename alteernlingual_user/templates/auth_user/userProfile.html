@@ -67,7 +67,30 @@
                 <div class="col-12 col-xl-8">
                     <div class="card card-body bg-white border-light shadow-sm mb-4">
                         <h2 class="h5 mb-4">{% trans "Profile information" %}</h2>
-                        <div class="row">
+                        <div class="row"><a href="" id="#ltl"></a>
+                             <div class="row align-items-center">
+                            <div class="col-md-6 mb-3">
+                                <label for="ltl">{% trans "language to Learn(LTL)" %}</label>
+                                <select name="ltl" class="form-select mb-0" id="ltl"
+                                        aria-label="ltl select example">
+                                   
+                                    {% for key, value in profile.LTL_CHOICES %}
+                                        <option value="{{ key }}"
+                                                {% if profile.ltl == key %}selected{% endif %}>{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="loi">{% trans "Language of Interaction(LOI)" %}</label>
+                                <select name="loi" class="form-select mb-0" id="loi"
+                                        aria-label="loi select example">
+                                    
+                                    {% for key, value in profile.LOI_CHOICES %}
+                                        <option value="{{ key }}"
+                                                {% if profile.loi == key %}selected{% endif %}>{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                             <div class="col-md-6 mb-3">
                                 <div>
                                     <label for="first_name">{% trans "First Name" %}</label>
@@ -85,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row align-items-center">
+                       
                             <div class="col-md-6 mb-3">
                                 <label for="birthday">{% trans "Birthday" %}</label>
                                 <div class="input-group">
@@ -105,6 +128,7 @@
                                     {% endfor %}
                                 </select>
                             </div>
+                            -
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -118,7 +142,7 @@
                                 <div class="form-group">
                                     <label for="phone">{% trans "Phone" %}</label>
                                     <input name="phone" class="form-control" id="phone" type="number"
-                                           placeholder="+12-345 678 910" value="{{ profile.phone }}" required>
+                                           placeholder="+234-345 678 910" value="{{ profile.phone }}" required>
                                 </div>
                             </div>
                         </div>
@@ -131,13 +155,7 @@
                                            placeholder="Enter your home address" value="{{ profile.address|default:'' }}" required>
                                 </div>
                             </div>
-                            <div class="col-sm-3 mb-3">
-                                <div class="form-group">
-                                    <label for="number">{% trans "Number" %}</label>
-                                    <input name="number" class="form-control" id="number" type="number"
-                                           placeholder="No." value="{{ profile.number|default:'' }}" required>
-                                </div>
-                            </div>
+                           
                         </div>
                         <div class="row">
                             <div class="col-sm-4 mb-3">
@@ -147,11 +165,12 @@
                                            value="{{ profile.city|default:'' }}" required>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                             <div class="row">
+                            <div class="col-sm-4 mb-3">
                                 <div class="form-group">
-                                    <label for="zip">{% trans "ZIP" %}</label>
-                                    <input name="zip" class="form-control" id="zip" type="tel" placeholder="ZIP"
-                                           value="{{ profile.zip|default:'' }}" required>
+                                    <label for="country">{% trans "Country" %}</label>
+                                    <input name="country" class="form-control" id="country" type="text" placeholder="country"
+                                           value="{{ profile.country|default:'' }}" required>
                                 </div>
                             </div>
                         </div>
@@ -172,5 +191,6 @@
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 
+{% include './auth_footer.html' %}
 
 {% endblock %}

@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'alteernlingual_user',
+    'Alteernlingual_topic',
     'crispy_forms',
+    'ckeditor',
+     
 
 ]
 
@@ -58,7 +61,7 @@ ROOT_URLCONF = 'Alteernlingual.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-       'DIRS': [os.path.join(BASE_DIR, 'alteernlingual_user/templates')],
+       'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -205,3 +208,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'alteernlingual_user/media')
 # Third party apps configuration
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+CKEDITOR_UPLOAD_PATH = "CK_uploads/"
+
+CKEDITOR_CONFIGS = {
+
+
+    'default': {'toolbar': 'full','extraPlugins': ','.join(['html5audio',]),},
+
+            }
