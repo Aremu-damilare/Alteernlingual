@@ -2,12 +2,13 @@ from django.contrib import admin
 
 
 # Register your models here.
-from .models import Category, EnglishTopic, IgboTopic, HausaTopic, YorubaTopic, FrenchTopic, ArabicTopic
+from .models import Language, LanguageFollow, Skill, SkillFollow, Topic, SubTopic, LanguageOfInteraction, LoiFollow, SubTopicDetails
 
-admin.site.register(Category)
-admin.site.register(EnglishTopic)
-admin.site.register(IgboTopic)
-admin.site.register(HausaTopic)
-admin.site.register(YorubaTopic)
-admin.site.register(FrenchTopic)
-admin.site.register(ArabicTopic)
+admin.site.register(Language)
+admin.site.register(LanguageFollow)
+admin.site.register(Skill)
+admin.site.register(SkillFollow)
+admin.site.register(Topic)
+admin.site.register(SubTopic)
+admin.site.register(LanguageOfInteraction)
+admin.site.register(SubTopicDetails)

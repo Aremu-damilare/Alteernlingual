@@ -11,30 +11,10 @@
         <!-- Uncomment below if you prefer to use an image logo -->
          <a href="{% url 'home' %}"><img src="{% static 'img/s.jpg' %}" alt="" class="img-fluid"></a>
       </div>
- <form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="/" />
 
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="language" style="width: auto;" onchange="this.form.submit()">
-                      {% get_current_language as LANGUAGE_CODE %}
-                      {% get_available_languages as LANGUAGES %}
-                      {% get_language_info_list for LANGUAGES as languages %}
-                      {% for language in languages %}
+                
 
-                          <option 
-                            value="{{ language.code }}"
-                            {% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}
-                            data-content='<img src="/static/img/flags/{{ language.code }}.png">
-                            <span style="display:inline-block; width:100px; padding-left: 10px; text-shadow:none">
-                              {{ language.name_local }}
-                              <!-- span style="color:#999;">&nbsp;[{{ language.code }}]</span -->
-                            </span>'>
-                            {{ language.name_local }} {{ language.code }}
-                          </option>
 
-                      {% endfor %}
-                    </select>
-                </form>
       <nav id="navbar" class="navbar">
         <ul>
           
@@ -53,4 +33,111 @@
       </nav><!-- .navbar -->
 
     </div>
+
+                   
+<div class="table-responsive">
+  <table class="table table-striped">
+  <tbody>
+    <tr class="table-light"> 
+      <td>
+        <form name="languageAr" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="ar" />
+                        <a href="javascript:document.languageAr.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        <i style="color: blue">Arabic</i>
+                        {% else %}
+                        Arabic
+                        {% endif %}
+                       </a>
+                      </form> 
+      </td>
+
+      <td>
+          <form name="languageEn" action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="en" />
+                        <a href="javascript:document.languageEn.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'en' %}
+                        <i style="color: blue">English</i>
+                        {% else %}
+                        English
+                        {% endif %}
+                       </a>
+                      </form>
+      </td>
+
+      <td>
+         <form name="languageFr" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="fr" />
+                        <a href="javascript:document.languageFr.submit()">
+                        {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'fr' %}
+                        <i style="color: blue">Francais</i>
+                        {% else %}
+                        Francais
+                        {% endif %}
+                      </a>
+                      </form> 
+      </td>
+
+       <td>
+         <form name="languageHa" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="ha" />
+                        <a href="javascript:document.languageHa.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'ha' %}
+                        <i style="color: blue">Hausa</i>
+                        {% else %}
+                        Hausa
+                        {% endif %}
+                       </a>
+                      </form> 
+       </td>
+
+      <td>
+         <form name="languageIg" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="ig" />
+                        <a href="javascript:document.languageIg.submit()"> 
+                      {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'ig' %}
+                        <i style="color: blue">Igbo</i>
+                        {% else %}
+                        Igbo
+                        {% endif %}
+                      </a>
+                      </form>   
+
+      </td>
+
+      <td>
+        <form name="languageYo" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="yo" />
+                        <a href="javascript:document.languageYo.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'yo' %}
+                        <i style="color: blue">Yoruba</i>
+                        {% else %}
+                        Yoruba
+                        {% endif %}
+                       </a>
+                      </form> 
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
   </header><!-- End Header -->

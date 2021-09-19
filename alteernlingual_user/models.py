@@ -13,29 +13,7 @@ class Profile(models.Model):
         (GENDER_FEMALE, _("Female")),
     ]
 
-    EN = 1
-    IG = 2
-    HA = 3
-    YO = 4
-    FR = 5
-    AR = 6
-    LTL_CHOICES = [
-        (EN, _("English")),
-        (IG, _("Igbo")),
-        (HA, _("Hausa")),
-        (YO, _("Yoruba")),
-        (FR, _("French")),
-        (AR, _("Arabic")),
-    ]
-    LOI_CHOICES = [
-        (EN, _("English")),
-        (IG, _("Igbo")),
-        (HA, _("Hausa")),
-        (YO, _("Yoruba")),
-        (FR, _("French")),
-        (AR, _("Arabic")),
-    ]
-
+  
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to="profiles/avatars/", null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
@@ -47,9 +25,7 @@ class Profile(models.Model):
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    ltl = models.PositiveSmallIntegerField(choices=LTL_CHOICES, null=True, blank=True, default=EN)
-    loi = models.PositiveSmallIntegerField(choices=LOI_CHOICES, null=True, blank=True, default=EN)
-
+   
     class Meta:
         verbose_name = _('Profile')
         verbose_name_plural = _('Profiles')

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Alteernlingual - Home{% endblock %}
 {% load i18n %}
 {% block content %}
 {% load static %}
@@ -29,7 +30,31 @@
           </div>
         </div>
         <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
-          <img src="{% static 'img/hero-img.png' %}" class="img-fluid" alt="">
+         {% get_current_language as LANGUAGE_CODE %}
+          {% if LANGUAGE_CODE == 'en' %}
+          <img src="{% static 'img/welcome/english-welcome.png' %}" class="img-fluid" alt="">
+          {% endif %}
+          
+          {% if LANGUAGE_CODE == 'ig' %}
+          <img src="{% static 'img/welcome/igbo-welcome.png' %}" class="img-fluid" alt="">
+          {% endif %}
+
+          {% if LANGUAGE_CODE == 'ha' %}
+          <img src="{% static 'img/welcome/hausa-welcome.png' %}" class="img-fluid" alt="">
+          {% endif %}
+
+           {% if LANGUAGE_CODE == 'yo' %}
+          <img src="{% static 'img/welcome/yoruba-welcome.png' %}" class="img-fluid" alt="">
+          {% endif %}
+
+           {% if LANGUAGE_CODE == 'fr' %}
+          <img src="{% static 'img/welcome/french-welcome.png' %}" class="img-fluid" alt="">
+          {% endif %}
+
+          {% if LANGUAGE_CODE == 'ar' %}
+          <img src="{% static 'img/welcome/arabic-welcome.png' %}" class="img-fluid" alt="">
+          {% endif %}
+
         </div>
       </div>
     </div>
@@ -294,40 +319,7 @@
     </section><!-- End Contact Section -->
   </main><!-- End #main -->
 
-              {% get_current_language as LANGUAGE_CODE %}
-
-                  {% if LANGUAGE_CODE == 'ar' %} 
-              {% include './welcomeScripts/arabic.html' %}              
-                  {% endif %}
-
-                   {% if LANGUAGE_CODE == 'yo' %} 
-                  {% include './welcomeScripts/yoruba.html' %} 
-                  {% endif %}
-
-                   {% if LANGUAGE_CODE == 'ha' %} 
-                  {% include './welcomeScripts/hausa.html' %}      
-                  {% endif %}
-
-                  {% if LANGUAGE_CODE == 'en' %} 
-                  {% include './welcomeScripts/english.html' %} 
-                  {% endif %}
-
-                  {% if LANGUAGE_CODE == 'fr' %} 
-                  {% include './welcomeScripts/french.html' %}   
-                  {% endif %}
-
-                  {% if LANGUAGE_CODE == 'yo' %} 
-                  {% include './welcomeScripts/yoruba.html' %} 
-                  {% endif %}
-
-                  {% if LANGUAGE_CODE == 'ig' %} 
-                  {% include './welcomeScripts/igbo.html' %}              
-                  {% endif %}
-
-
-
-
-
+          
 
 {% include 'footer.html' %}
 

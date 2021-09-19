@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Alteernlingual - Lesson Topics {% endblock %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+{% include '../auth_user/userNav.html' %}
+
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+
+  <section>
+
+    <div class="container">  
+       <br><br>
+
+       <div>
+  
+</div>
+ <div class="card text-center">
+                  <div class="card-header">
+
+                   <i class="fas fa-book-open"></i> <h3>{{ topic.title }}</h3><h6>{{ topic.skill }}</h6>
+
+                  </div>
+                  <div class="card-body">
+                   <ul class="list-group">
+                        {% for c in subtopic %}
+                          <li class="list-group-item list-group-item-info">
+                            <i class="fas fa-caret-right"></i><a href="{% url 'topic_detail'  c.pk %}" style="font-size: 20px;"> {{ c.title }} </a> <hr>
+                          </li>
+                        {% endfor %}
+                    </ul>           
+                   <br><br>
+                    <div>
+                      <i>
+                        Select a topic and continue to dual display
+                      </i>
+                    
+                  </div>
+                  </div>
+                  
+                </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+ {% endblock %}

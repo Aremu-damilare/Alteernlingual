@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title %}Alteernlingual - Lesson {% endblock %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+{% include '../auth_user/userNav.html' %}
+
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+  <section >
+    <div class="container">
+      <br><br>
+       
+       <br><br>
+                <div class="card text-center">
+                  <div class="card-header">
+                   <i class="fas fa-book-open"></i> Select a <b> Lanuage of Interest</b>  you wish to learn
+                  </div>
+                  <div class="card-body"><img src="{% static 'img/happy.gif' %}"  width="200px">
+                    <h5 class="card-title">I want to learn...</h5><br>
+
+                         {% for cate in language %}
+                            {% if user.id not in cate.all_user %}            
+                                 <a href="{% url 'follow_cat' cate.id %}#skill" class="btn btn-info">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
+                                         {% else %} 
+                                <a style="color: red" class="btn btn-primary" href="{% url 'follow_cat' cate.id %}?unfollow=true">  - <i class="fas fa-envelope-open-text"></i>   &nbsp; {{ cate }} &nbsp; &nbsp;</a> &nbsp; &nbsp; 
+                         {% endif %}
+                        {% endfor %}
+                   <br><br>
+                   {% for cf in follow_cats %}
+                    <i> {{ cf.language}} selected. </i> 
+                      {% endfor %}
+                    <div>
+                      <i>
+                        You can learn only one Language at a time
+                      </i>
+                    
+                  </div>
+                  </div>
+                  
+                </div>
+
+
+     <br><br>
+ 
+{% if fcats %}
+     <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title"> <i class="far fa-dot-circle"></i> Choose Prefered skill</h5><br><br>
+                                 {% for ski in fcats %} 
+                                    {% if user.id not in ski.all_user %}          
+                                 <a href="{% url 'follow_ski' ski.id %}#skill" class="btn btn-warning"> + {{ ski }}   &nbsp; &nbsp;</a> 
+                                         {% else %} 
+                                 <a style="color: red" href="{% url 'follow_ski' ski.id %}?unfollow=true" class="btn btn-secondary">   - {{ ski }}  &nbsp; &nbsp;</a>
+                         {% endif %}
+                        {% endfor %}
+                        
+                   <br><br>
+                   
+                  </div>
+                  <div class="card-footer text-muted">
+                     Language of interest: 
+                      {% for cf in follow_cats %}
+                         <i> {{ cf.language}} </i> 
+                      {% endfor %} <br> skill: 
+                          {% for fs in follow_skill %}
+                              <i>{{ fs.skill }} </i> 
+                      {% endfor %}
+              </div>
+    </div>
+   {% endif %}     
+
+        <br> <a href="" id="skill"></a>
+
+                {% if cou %}
+         <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Topics available to learn:</h5>
+                                                    
+                      {% for c in cou %}        
+                          <ul class="list-group">
+                            <li class="list-group-item">
+                               <i class="fas fa-certificate"></i>{{c.skill.category}}<a href="{% url 'detail'  c.pk %}" style="font-size: 20px;">  {{ c.title }} </a> <hr>
+
+                            </li> 
+                          </ul>
+
+                      {% endfor %}
+                  </div>
+                  <div class="card-footer text-muted">
+                    
+                  </div>
+                </div>       
+
+          {% endif %}
+
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+
+{% include '../auth_user/auth_footer.html' %}
+
+ {% endblock %}
+

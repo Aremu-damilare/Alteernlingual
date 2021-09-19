@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block title %}Alteernlingual - {{topic.title}}{% endblock %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+<link href=" {% static 'css/audio-custom.css' %} " rel="stylesheet">
+
+{% include '../auth_user/userNavTopicDetail.html' %}
+
+  <section >
+    <div class="container">
+      <br><br>
+            <h6>Select lanuage of interaction:
+              {% for l in loi %} 
+              {% if user.id not in l.all_user %}          
+           <a class="btn" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
+                   {% else %} 
+           <a class="btn btn"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
+           {% endif %}
+          {% endfor %}
+            </h6>
+        <br><br>
+
+  <style>
+    table {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 20px;
+      height: 100%;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    td {
+      border: 0.1px solid #4A5073;
+      text-align: left;
+      padding: 3px;
+      background-color: white;
+      border-radius: 20px;
+    }
+
+    tr:nth-child(even) {
+      background-color: white;
+    }
+
+    h1 {
+      /*color: green;*/
+    }
+  </style>
+  <center>
+    
+    <table>
+      <tr>
+        <td width="50px">
+            <h6>interacting language: <b> 
+                    {% for loi in follow_cats %}
+                        {{ loi.loi }}
+                      {% endfor %}
+                    </b>   <hr></h6>
+                {% for i in follow_cats %}
+                  
+                  {% if i.loi.num == 1 %}
+                    {{topic.AR_title | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 2 %}
+                    {{topic.EN_title | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 3 %}
+                    {{topic.FR_title | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 4 %}
+                    {{topic.HA_title | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 5 %}
+                    {{topic.IG_title | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 6 %}
+                    {{topic.YO_title | safe}}
+                  {% endif %}
+
+                {% endfor %}
+          </td>
+
+        <td width="50px"> 
+          <h6> language to learn: <b> 
+          {% for fl in follow_lang %}
+              {{ fl.language }}
+            {% endfor %}
+          </b>  
+           <hr></h6>
+        {{topic.main_title | safe}}
+        </td>
+       
+      </tr>
+    </table>
+
+
+     <table>
+      <tr>
+        {% for topicdetail in topicdetails %}
+        <td>
+                {% for i in follow_cats %}
+                  
+                  {% if i.loi.num == 1 %}
+                    {{topicdetail.AR_explanations | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 2 %}
+                    {{topicdetail.EN_explanations | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 3 %}
+                    {{topicdetail.FR_explanations | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 4 %}
+                    {{topicdetail.HA_explanations | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 5 %}
+                    {{topicdetail.IG_explanations | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 6 %}
+                    {{topicdetail.YO_explanations | safe}}
+                  {% endif %}
+
+                {% endfor %}
+               
+          </td>
+                    
+        <td>
+       
+      {{ topicdetail.main_explanations | safe}}
+       
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <br>
+
+       {% if request.user not in topic.read.all %} 
+                            <a class="btn btn-primary" href="{% url 'read_topic' topic.slug %}">(Read)</a>
+                            <small style="color: blue;"> Click on the "Read" button after reading this topic.</small>
+                        {% else %} 
+                            <a class="btn btn-primary" href="{% url 'read_topic' topic.slug %}">(Unread)</a>
+                            <small style="color: blue;"> Click on the "Unread" button to remove topic from read memory.</small>
+                        {% endif %}
+  </center>
+</body>
+     
+       </div>               
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+{% include '../auth_user/auth_footer.html' %}
+{% endblock %}
+

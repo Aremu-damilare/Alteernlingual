@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Alteernlingual - {{profile.user.username}}{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
 {% load i18n %}
@@ -67,30 +68,12 @@
                 <div class="col-12 col-xl-8">
                     <div class="card card-body bg-white border-light shadow-sm mb-4">
                         <h2 class="h5 mb-4">{% trans "Profile information" %}</h2>
-                        <div class="row"><a href="" id="#ltl"></a>
+                        <div class="row">
+
+                            
                              <div class="row align-items-center">
-                            <div class="col-md-6 mb-3">
-                                <label for="ltl">{% trans "language to Learn(LTL)" %}</label>
-                                <select name="ltl" class="form-select mb-0" id="ltl"
-                                        aria-label="ltl select example">
-                                   
-                                    {% for key, value in profile.LTL_CHOICES %}
-                                        <option value="{{ key }}"
-                                                {% if profile.ltl == key %}selected{% endif %}>{{ value }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="loi">{% trans "Language of Interaction(LOI)" %}</label>
-                                <select name="loi" class="form-select mb-0" id="loi"
-                                        aria-label="loi select example">
-                                    
-                                    {% for key, value in profile.LOI_CHOICES %}
-                                        <option value="{{ key }}"
-                                                {% if profile.loi == key %}selected{% endif %}>{{ value }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+                            
+                           
                             <div class="col-md-6 mb-3">
                                 <div>
                                     <label for="first_name">{% trans "First Name" %}</label>

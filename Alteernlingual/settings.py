@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'alteernlingual_user',
     'Alteernlingual_topic',
+    'alteernlingual_subjects',
     'crispy_forms',
     'ckeditor',
      
@@ -117,12 +118,13 @@ LANGUAGE_CODE = 'en-us'
 from django.utils.translation import gettext_noop
 
 LANGUAGES = [
-    ('en', gettext_noop('English')),
-    ('ig', gettext_noop('Igbo')),
-    ('ha', gettext_noop('hausa')),
-    ('yo', gettext_noop('Yoruba')), 
+
     ('ar', gettext_noop('Arabic')),
-    ('fr', gettext_noop('French')),   
+    ('en', gettext_noop('English')),
+    ('fr', gettext_noop('French')),
+    ('ha', gettext_noop('hausa')),
+    ('ig', gettext_noop('Igbo')),
+    ('yo', gettext_noop('Yoruba')),    
 ]
 
 EXTRA_LANG_INFO = {
@@ -193,8 +195,14 @@ LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 
 
-DEFAULT_FROM_EMAIL = 'aremudami2020@gmail.com'
+DEFAULT_FROM_EMAIL = 'a.damilare2012@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+MAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'a.damilare2012@gmail.com'
+EMAIL_HOST_PASSWORD = 'cicl12m\\cicl12m\\'
+EMAIL_PORT = 587
+
 
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 

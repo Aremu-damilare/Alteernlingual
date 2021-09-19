@@ -20,7 +20,10 @@ from django.views import View
 
 from .forms import ProfileForm, form_validation_error
 from .models import Profile
-from Alteernlingual_topic.models import EnglishTopic, IgboTopic, HausaTopic, YorubaTopic, FrenchTopic, ArabicTopic
+from Alteernlingual_topic.models import SubTopic, LanguageFollow
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
 
 def home(request):
     if request.user.is_authenticated:
@@ -28,47 +31,22 @@ def home(request):
     else:
         return render(request, 'index.html')
 
-def topicPercent(read, totalTopics):
-    if totalTopics == 0:
-        totalTopics = 1
-    percentage = read / totalTopics * 100
+def topicPercent(read_count, total_topic):
+    if total_topic == 0:
+        total_topic = 1
+    percentage = int(read_count / total_topic * 100)
 
     return percentage
 
 @login_required
 def dashboard(request):
-    EN_count = EnglishTopic.objects.filter(read=request.user).count()
-    EN_countTopic = EnglishTopic.objects.all().count()
-    EN_Percent = topicPercent(EN_count, EN_countTopic)
-
-    IG_count = IgboTopic.objects.filter(read=request.user).count()
-    IG_countTopic = IgboTopic.objects.all().count()
-    IG_Percent = topicPercent(IG_count, IG_countTopic)
-
-    HA_count = HausaTopic.objects.filter(read=request.user).count()
-    HA_countTopic = HausaTopic.objects.all().count()
-    HA_Percent =  topicPercent(HA_count, HA_countTopic)
-
-    YO_count = YorubaTopic.objects.filter(read=request.user).count()
-    YO_countTopic = YorubaTopic.objects.all().count()
-    YO_Percent =  topicPercent(YO_count, YO_countTopic)
-
-    FR_count = FrenchTopic.objects.filter(read=request.user).count()
-    FR_countTopic = FrenchTopic.objects.all().count()
-    FR_Percent = topicPercent(FR_count, FR_countTopic)
-
-    AR_count = ArabicTopic.objects.filter(read=request.user).count()
-    AR_countTopic = ArabicTopic.objects.all().count()
-    AR_Percent = topicPercent(AR_count, AR_countTopic)
+    language_follow = LanguageFollow.objects.filter(user=request.user)
+    read_count = SubTopic.objects.filter(read=request.user).count()
+    total_topic = SubTopic.objects.filter(language__language_follow__user=request.user).count()
+    percent =  topicPercent(read_count, total_topic)
 
     return render(request, 'auth_user/userDashboard.html',  {
-
-        "EN_count": EN_count, "EN_countTopic": EN_countTopic, "EN_Percent": EN_Percent,
-        "IG_count": IG_count, "IG_countTopic": IG_countTopic, "IG_Percent": IG_Percent,
-        "HA_count": HA_count, "HA_countTopic": HA_countTopic, "HA_Percent": HA_Percent,
-        "YO_count": YO_count, "YO_countTopic": YO_countTopic, "YO_Percent": YO_Percent,
-        "FR_count": FR_count, "FR_countTopic": FR_countTopic, "FR_Percent": FR_Percent,
-        "AR_count": AR_count, "AR_countTopic": AR_countTopic, "AR_Percent": AR_Percent
+    "read_count": read_count, "total_topic": total_topic, 'language_follow': language_follow, "percent": percent,
 
         })
 
@@ -83,6 +61,14 @@ def register_request(request):
             form.save()
             username = form.cleaned_data.get("username")
             raw_password = form.cleaned_data.get("password1")
+            email = form.cleaned_data.get('email')
+            htmly = get_template('registration/email.html')
+            d = { 'username': username }
+            subject, from_email, to = 'welcome', 'a.damilare2012@gmail.com', email
+            html_content = htmly.render(d)
+            msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
             user = authenticate(username=username, password=raw_password)
             user = form.save()
             login(request, user)

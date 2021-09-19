@@ -1,42 +1,64 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import ListView, DetailView
 # Create your views here.
-from .models import EnglishTopic, IgboTopic, HausaTopic, YorubaTopic, FrenchTopic, ArabicTopic, Category
-
-def Lessons(request):
-    return render(request, 'lessons.html')
-
-class CategoryList(ListView):
-    model = Category
-    context_object_name = 'Category'
+from .models import Language, LanguageFollow, Skill, SkillFollow, Topic, SubTopic, LanguageOfInteraction, LoiFollow, SubTopicDetails
+from django.views.generic import TemplateView
+from django.urls import reverse
 
 
-class CategoryDetail(DetailView):
-    model = Category
-    template_name = 'Category_detail.html'
-    context_object_name = 'Category'
+class lessonsView(ListView):
+    model = Skill
+    context_object_name = 'posts'
+    template_name = 'lessons/lessons.html'
+
+    def get_queryset(self):
+        return LanguageFollow.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['language'] = Language.objects.all()
+        context['skill'] = Skill.objects.all()
+        context['fcats'] = Skill.objects.filter(language__language_follow__user=self.request.user)
+        context['cou'] = Topic.objects.filter(skill__skill_follow__user=self.request.user)
+        context['follow_cats'] = LanguageFollow.objects.filter(user=self.request.user)
+        context['follow_skill'] = SkillFollow.objects.filter(user=self.request.user)
+        return context
+
+class topicDetail(DetailView):
+    model = Topic
+    context_object_name = 'topic'
+    template_name = 'lessons/lessons_detail.html'
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
-        context = super(CategoryDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-      
+        context['subtopic'] = SubTopic.objects.filter(topic=self.get_object())
+        return context
+
+class subTopicDetail(DetailView):
+    model = SubTopic
+    context_object_name = 'topic'
+    template_name = 'lessons/topic_detail.html'
+    slug_field = 'slug'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['follow_cats'] = LoiFollow.objects.filter(loi__loi_follow__user=self.request.user)
+        context['follow_lang'] = LanguageFollow.objects.filter(user=self.request.user)
+        context['loi'] = LanguageOfInteraction.objects.all()
+        context['topicdetails'] = SubTopicDetails.objects.filter(subtopic=self.get_object())
         return context
 
 
-class EnglishList(ListView):
-    queryset = EnglishTopic.objects.all()
-    template_name = 'lang_tutorials/EnglishTopic.html'
-    paginate_by = 10
-    context_object_name = 'EnglishTopic'
-
-def ENReadView(request, slug):
+def readView(request, slug):
     context = {}
     user = request.user
     if not user.is_authenticated:
         return redirect('must_authenticate')
-    ENpost = get_object_or_404(EnglishTopic, slug=slug)
+    ENpost = get_object_or_404(SubTopic, slug=slug)
     red = False #past of read is red in this context not read
     if ENpost.read.filter(id=request.user.id).exists():
         ENpost.read.remove(request.user)
@@ -47,174 +69,60 @@ def ENReadView(request, slug):
     return redirect(request.META.get('HTTP_REFERER', ''))
 
 
-class IgboList(ListView):
-    queryset = IgboTopic.objects.all()
-    template_name = 'lang_tutorials/IgboTopic.html'
-    paginate_by = 1
-    context_object_name = 'IgboTopic'
 
-def IGReadView(request, slug):
-    context = {}
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('must_authenticate')
-    IGpost = get_object_or_404(IgboTopic, slug=slug)
-    red = False #past of read is red in this context not read
-    if IGpost.read.filter(id=request.user.id).exists():
-        IGpost.read.remove(request.user)
-        red = False
-    else:
-        IGpost.read.add(request.user)
-        red = True
-    return redirect(request.META.get('HTTP_REFERER', ''))
+class followLanguageView(TemplateView):
+    template_name = 'lessons/lessons.html'
 
+    def get(self, request, *args, **kwargs):
+        language_id = kwargs['pk']
+        language = Language.objects.filter(id=language_id).first()
+        skill_id = kwargs['pk']
+        skill = Skill.objects.filter(skill_follow__user=self.request.user).first()
+        if language:
+            if request.GET.get('unfollow'):
+                LanguageFollow.objects.filter(language=language, user=self.request.user).delete()
+                SkillFollow.objects.filter(skill=skill, user=self.request.user).delete()
+                SubTopic.objects.filter(read=request.user).delete()
+            elif LanguageFollow.objects.filter(language__language_follow__user=self.request.user).exists(): 
+                LanguageFollow.objects.filter(language=language, user=self.request.user).delete()
+            else:
+                LanguageFollow.objects.get_or_create(language=language, user=self.request.user)
 
-class HausaList(ListView):
-    queryset = HausaTopic.objects.all()
-    template_name = 'lang_tutorials/HausaTopic.html'
-    paginate_by = 1
-    context_object_name = 'HausaTopic'
-
-def HAReadView(request, slug):
-    context = {}
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('must_authenticate')
-    HApost = get_object_or_404(HausaTopic, slug=slug)
-    red = False #past of read is red in this context not read
-    if HApost.read.filter(id=request.user.id).exists():
-        HApost.read.remove(request.user)
-        red = False
-    else:
-        HApost.read.add(request.user)
-        red = True
-    return redirect(request.META.get('HTTP_REFERER', ''))
-
-
-class YorubaList(ListView):
-    queryset = YorubaTopic.objects.all()
-    template_name = 'lang_tutorials/YorubaTopic.html'
-    paginate_by = 7
-    context_object_name = 'YorubaTopic'
-
-def YOReadView(request, slug):
-    context = {}
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('must_authenticate')
-    YOpost = get_object_or_404(YorubaTopic, slug=slug)
-    red = False #past of read is red in this context not read
-    if YOpost.read.filter(id=request.user.id).exists():
-        YOpost.read.remove(request.user)
-        red = False
-    else:
-        YOpost.read.add(request.user)
-        red = True
-    return redirect(request.META.get('HTTP_REFERER', ''))
-
-
-class FrenchList(ListView):
-    queryset = FrenchTopic.objects.all()
-    template_name = 'lang_tutorials/FrenchTopic.html'
-    paginate_by = 1
-    context_object_name = 'FrenchTopic'
-
-def FRReadView(request, slug):
-    context = {}
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('must_authenticate')
-    FRpost = get_object_or_404(FrenchTopic, slug=slug)
-    red = False #past of read is red in this context not read
-    if FRpost.read.filter(id=request.user.id).exists():
-        FRpost.read.remove(request.user)
-        red = False
-    else:
-        FRpost.read.add(request.user)
-        red = True
-    return redirect(request.META.get('HTTP_REFERER', ''))
-
-
-class ArabicList(ListView):
-    queryset = ArabicTopic.objects.all()
-    template_name = 'lang_tutorials/ArabicTopic.html'
-    paginate_by = 1
-    context_object_name = 'ArabicTopic'
-
-def ARReadView(request, slug):
-    context = {}
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('must_authenticate')
-    ARpost = get_object_or_404(ArabicTopic, slug=slug)
-    red = False #past of read is red in this context not read
-    if ARpost.read.filter(id=request.user.id).exists():
-        ARpost.read.remove(request.user)
-        red = False
-    else:
-        ARpost.read.add(request.user)
-        red = True
-    return redirect(request.META.get('HTTP_REFERER', ''))
+        return redirect(reverse('lessons'))
 
 
 
-class EnglishTopicDetailView(DetailView):
-    model = EnglishTopic
-    template_name = 'topics_details/EnglishTopic_detail.html'
-    context_object_name = 'topic'
-    slug_field = 'slug'
+class FollowSkillView(TemplateView):
+    template_name = 'lessons/lessons.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(EnglishTopicDetailView, self).get_context_data(**kwargs)
-        return context
+    def get(self, request, *args, **kwargs):
+        skill_id = kwargs['pk']
+        skill = Skill.objects.filter(id=skill_id).first()
+        if skill:
+            if request.GET.get('unfollow'):
+                SkillFollow.objects.filter(skill=skill, user=self.request.user).delete()
+            elif SkillFollow.objects.filter(skill__skill_follow__user=self.request.user).exists():
+                SkillFollow.objects.filter(skill=skill, user=self.request.user).delete()
+            else:
+                SkillFollow.objects.get_or_create(skill=skill, user=self.request.user)
 
-class IgboTopicDetailView(DetailView):
-    model = IgboTopic
-    template_name = 'topics_details/IgboTopic_detail.html'
-    context_object_name = 'topic'
-    slug_field = 'slug'
+        return redirect(reverse('lessons'))
 
-    def get_context_data(self, **kwargs):
-        context = super(IgboTopicDetailView, self).get_context_data(**kwargs)
-        return context
 
-class HausaTopicDetailView(DetailView):
-    model = HausaTopic
-    template_name = 'topics_details/HausaTopic_detail.html'
-    context_object_name = 'topic'
-    slug_field = 'slug'
 
-    def get_context_data(self, **kwargs):
-        context = super(HausaTopicDetailView, self).get_context_data(**kwargs)
-        return context
+class FollowLoiView(TemplateView):
+    template_name = 'blog/topicdetail.html'
 
-class YorubaTopicDetailView(DetailView):
-    model = YorubaTopic
-    template_name = 'topics_details/YorubaTopic_detail.html'
-    context_object_name = 'topic'
-    slug_field = 'slug'
+    def get(self, request, *args, **kwargs):
+        loi_id = kwargs['pk']
+        loi = LanguageOfInteraction.objects.filter(id=loi_id).first()
+        if loi:
+            if request.GET.get('unfollow'):
+                LoiFollow.objects.filter(loi=loi, user=self.request.user).delete()
+            elif LoiFollow.objects.filter(loi__loi_follow__user=self.request.user).exists():
+                LoiFollow.objects.filter(loi=loi, user=self.request.user).delete()
+            else:
+                LoiFollow.objects.get_or_create(loi=loi, user=self.request.user)
 
-    def get_context_data(self, **kwargs):
-        context = super(YorubaTopicDetailView, self).get_context_data(**kwargs)
-        return context
-
-class FrenchTopicDetailView(DetailView):
-    model = FrenchTopic
-    template_name = 'topics_details/FrenchTopic_detail.html'
-    context_object_name = 'topic'
-    slug_field = 'slug'
-
-    def get_context_data(self, **kwargs):
-        context = super(FrenchTopicDetailView, self).get_context_data(**kwargs)
-        return context
-
-class ArabicTopicDetailView(DetailView):
-    model = ArabicTopic
-    template_name = 'topics_details/ArabicTopic_detail.html'
-    context_object_name = 'topic'
-    slug_field = 'slug'
-
-    def get_context_data(self, **kwargs):
-        context = super(ArabicTopicDetailView, self).get_context_data(**kwargs)
-        return context
+        return redirect(request.META.get('HTTP_REFERER', ''))
 

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}Alteernlingual - {{ topic.title}}{% endblock %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+{% include '../auth_user/userNav.html' %}
+
+
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+
+<section >
+    <div class="container">
+      <br><br><br>
+            <h6>Select lanuage of interaction:
+              {% for l in loi %} 
+              {% if user.id not in l.all_user %}          
+           <a class="btn" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
+                   {% else %} 
+           <a class="btn btn"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
+           {% endif %}
+          {% endfor %}
+            </h6>
+           
+   <div class="card text-center">
+  <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+             <h5>{{topic.main_title | safe}}</h5>
+            </div>
+            <div class="col">
+             <h5><!-- 
+           
+                {% for i in follow_cats %}
+                  
+                  {% if i.loi.num == 1 %}
+                    {{topic.EN_title | safe}}
+                  {% endif %}
+
+                  {% if i.loi.num == 2 %}
+                    <h6>Igb</h6>
+                  {% endif %}
+
+                {% endfor %} -->
+         </h5>
+            </div>
+          </div>
+        </div>
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col">
+               {{topic.main_explanations | safe}}
+              </div>
+              <div class="col"><!-- 
+               {% for i in follow_cats %}
+                    {% if i.loi.num == 1 %}
+                      {{topic.EN_explanations | safe}}
+                    {% endif %}
+
+                    {% if i.loi.num == 2 %}
+                      <h6>YorUbA</h6>
+                    {% endif %}
+
+                  {% endfor %} -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+
+      </div>
+    </section><!-- End Contact Section -->
+
+
+{% include '../auth_user/auth_footer.html' %}
+
+ {% endblock %}
+
