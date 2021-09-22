@@ -82,7 +82,6 @@ class followLanguageView(TemplateView):
             if request.GET.get('unfollow'):
                 LanguageFollow.objects.filter(language=language, user=self.request.user).delete()
                 SkillFollow.objects.filter(skill=skill, user=self.request.user).delete()
-                SubTopic.objects.filter(read=request.user).delete()
             elif LanguageFollow.objects.filter(language__language_follow__user=self.request.user).exists(): 
                 LanguageFollow.objects.filter(language=language, user=self.request.user).delete()
             else:

@@ -43,32 +43,26 @@ class SubTopic(models.Model):
     main_title =  RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
     main_explanations = RichTextUploadingField(null=True, blank=True, default=None)
 
-    language = models.ForeignKey(Language, verbose_name=("language"), on_delete=models.CASCADE, default=None)
+    language = models.ForeignKey(Language, verbose_name=("topic_language"), on_delete=models.CASCADE, default=None)
     topic = models.ForeignKey(Topic, verbose_name=("topic"), on_delete=models.CASCADE, default=None)
 
     EN_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None,)
-    EN_explanations = RichTextUploadingField(null=True, blank=True, default=None)
-
+   
 
     IG_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
-    IG_explanations = RichTextUploadingField(null=True, blank=True, default=None)
-
+   
     HA_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
-    HA_explanations = RichTextUploadingField(null=True, blank=True, default=None)
-
+  
     YO_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
-    YO_explanations = RichTextUploadingField(null=True, blank=True, default=None)
-
+   
     FR_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
-    FR_explanations = RichTextUploadingField(null=True, blank=True, default=None)
-
+    
     AR_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
-    AR_explanations = RichTextUploadingField(null=True, blank=True, default=None)
-
+    
     published = models.DateField(auto_now_add=True, blank=True, null=True)
     
     slug = models.SlugField(unique=True, max_length=50000, blank=True, null=True)
-    read = models.ManyToManyField(User, related_name='EN_posts', blank=True)
+    read = models.ManyToManyField(User, related_name='read', blank=True)
    
     def __str__(self):
         return self.title
@@ -107,18 +101,22 @@ class SubTopicDetails(models.Model):
 
 class readCount(models.Model):
     read = models.ForeignKey(SubTopic, on_delete=models.CASCADE, related_name='read_topics', blank=True, null=True)
+    language = models.ForeignKey(Language, verbose_name=("language"), on_delete=models.CASCADE, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    subtopic = models.ForeignKey(SubTopic, on_delete=models.CASCADE, blank=True, null=True)
 
 
 class LanguageOfInteraction(models.Model):
     loi = models.CharField(max_length=60, default=False, null=True)
     num = models.IntegerField(default=False, null=True)
 
+    def all_user(self):
+        return list(self.loi_follow.values_list('user', flat=True))
+
     def __str__(self):
         return self.loi
 
-    def all_user(self):
-        return list(self.loi_follow.values_list('user', flat=True))
+    
 
 class LoiFollow(models.Model):
     loi = models.ForeignKey(LanguageOfInteraction, on_delete=models.CASCADE, related_name='loi_follow',
