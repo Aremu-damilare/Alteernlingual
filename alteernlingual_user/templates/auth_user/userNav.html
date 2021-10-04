@@ -25,12 +25,14 @@
 
     </li>
           <li><a class="nav-link scrollto" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'lessons' %}">{% trans "Lessons" %}</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'subject:subject_view' %}">{% trans "Subjects" %}</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'lessons' %}#skill">{% trans "Lessons" %}</a></li>
+          
+          <li><a class="nav-link scrollto" href="{% url 'subject:subject_view' %}">{% trans "Subjects" %} </a></li>
+          <li><a class="nav-link scrollto" href="{% url 'search' %}">  <i class="fas fa-search"></i> &nbsp; &nbsp;</a></li>
           
           {% if user.is_authenticated %}
           <li><a class="nav-link scrollto" href="{% url 'logout' %}">
-            <i class="fas fa-sign-out-alt"></i> {% trans "Logout" %}</a></li>
+            <i class="fas fa-sign-out-alt"></i> &nbsp;{% trans "Logout" %}</a></li>
                 {% endif %}
 
         </ul>

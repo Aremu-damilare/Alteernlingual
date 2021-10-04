@@ -8,41 +8,43 @@
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
 
 
-<img src="{% static 'img/pencil.png' %}" alt="" height="150px" width="100%">
+<img src="{% static 'img/pencil.png' %}" alt="" height="200px" width="100%">
 <section id="features" class="features">
       <div class="container">
       	
       		<div class="card border-light shadow-sm mb-4">
           <div class="card-body">
               <div class="table-responsive">
-                  <table class="table table-centered table-nowrap mb-0 rounded">
-                      <thead class="thead-light">
-                          <tr>
-                              <th class="border-0"> - </th>
-                              <th class="border-0">Lanuguages</th>
-                              
-                          </tr>
-                      </thead>
-                      <tbody>
+                 <h5><i class="fas fa-book-open"></i> &nbsp; Subjects</h5> 
                           <!-- Item -->
-                          {% for language in languages %}
-                          <tr>
-                              <td class="border-0"><a href="#" class="text-primary font-weight-bold">-</a> </td>
+                          {% for subject in subjects %}
+                          {% if user.id not in subject.all_user %}
+                          
+                              <td class="border-0"> </td>
                               <td class="border-0 font-weight-bold">
                               
-											<h5><span class="icon icon-xs icon-gray w-30">
-                              	<span class="fas fa-globe-europe"></span>
-                              </span><a href="{{ language.pk }}">{{language}}</a>	</h5>
+											       <h5>
+                                <span class="icon icon-xs icon-gray w-30">
+                                      	<span class="fas fa-globe-europe"></span>
+                                </span>
+                              <a href="{% url 'subject:follow_subject' subject.id %}" class="btn btn-secondary">  +  <i class="fas fa-envelope"></i> {{ subject }}   </a> 
+                                         {% else %} 
+                               <br> <br><a style="color: red" class="btn btn-primary" href="{% url 'subject:follow_subject' subject.id %}?unfollow=true">  - <i class="fas fa-envelope-open-text"></i>   {{ subject }} </a> 	<br><br>
+                            </h5>
 									      		
                               </td>
                             
-                          </tr>
+                         
+                          {% endif %}
                             {% endfor %}
                           <!-- End of Item -->
 
                           <!-- End of Item -->
-                      </tbody>
-                  </table>
+                      <br><hr>
+
+                       {% for fsub in fsubject %}          
+                                 <a href="{% url 'subject:subjects_topics' fsub.pk %}" class="btn btn-warning">  {{ fsub }}  </a> 
+                        {% endfor %}
               </div>
           </div>
       </div>

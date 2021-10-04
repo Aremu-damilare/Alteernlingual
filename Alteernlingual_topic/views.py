@@ -1,11 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 # Create your views here.
 from .models import Language, LanguageFollow, Skill, SkillFollow, Topic, SubTopic, LanguageOfInteraction, LoiFollow, SubTopicDetails
 from django.views.generic import TemplateView
 from django.urls import reverse
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from .forms import SubTopicDetailForm
+from django.http import HttpResponse, HttpResponseRedirect
 
-
+@method_decorator(login_required(), 'dispatch')
 class lessonsView(ListView):
     model = Skill
     context_object_name = 'posts'
@@ -24,6 +28,7 @@ class lessonsView(ListView):
         context['follow_skill'] = SkillFollow.objects.filter(user=self.request.user)
         return context
 
+@method_decorator(login_required(), 'dispatch')
 class topicDetail(DetailView):
     model = Topic
     context_object_name = 'topic'
@@ -36,6 +41,8 @@ class topicDetail(DetailView):
         context['subtopic'] = SubTopic.objects.filter(topic=self.get_object())
         return context
 
+        
+@method_decorator(login_required(), 'dispatch')
 class subTopicDetail(DetailView):
     model = SubTopic
     context_object_name = 'topic'
@@ -46,11 +53,25 @@ class subTopicDetail(DetailView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['follow_cats'] = LoiFollow.objects.filter(loi__loi_follow__user=self.request.user)
+        context['follow_cats'] = LoiFollow.objects.filter(user=self.request.user)
         context['follow_lang'] = LanguageFollow.objects.filter(user=self.request.user)
         context['loi'] = LanguageOfInteraction.objects.all()
         context['topicdetails'] = SubTopicDetails.objects.filter(subtopic=self.get_object())
+        context['form'] = SubTopicDetailForm()
         return context
+
+
+def CommentCreateView(request, pk):
+    form = SubTopicDetailForm(request.POST or None)
+
+    if request.method == 'POST':
+        form = SubTopicDetailForm(request.POST, request.FILES)
+        if form.is_valid() and pk:
+            form.instance.user = request.user
+            form.instance.request = SubTopic.objects.get(pk=pk)
+            form.save()
+            return HttpResponseRedirect(reverse('topic_detail', kwargs={'pk': pk}))
+    return HttpResponseRedirect(reverse('topic_detail', kwargs={'pk': pk}))
 
 
 def readView(request, slug):
@@ -124,4 +145,19 @@ class FollowLoiView(TemplateView):
                 LoiFollow.objects.get_or_create(loi=loi, user=self.request.user)
 
         return redirect(request.META.get('HTTP_REFERER', ''))
+
+
+        
+
+# Define function to search book
+from django.db.models import Q
+def search(request):
+    """ search function  """
+    if request.method == "POST":
+        query_name = request.POST.get('name', None)
+        if query_name:
+            results = SubTopicDetails.objects.filter(main_explanations__contains=query_name )
+            return render(request, 'lessons/search.html', {"results":results, "query_name":query_name},)
+
+    return render(request, 'lessons/search.html')
 

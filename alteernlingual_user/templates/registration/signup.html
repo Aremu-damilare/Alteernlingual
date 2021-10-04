@@ -137,8 +137,10 @@
                                 </div>
                                 <button type="submit" name="register" class="btn btn-block btn-primary">Sign Up</button>
                             </form>
-
+              <p> Sign up using <br> <button><a class="download-btn" href="{% url 'social:begin' 'twitter' %}">Twitter</a></button> or 
+                  <button><a href="{% url 'social:begin' 'facebook' %}" class="download-btn">Facebook</a></button></p>
               </div>
+
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                 <img src="{% static 'img/draw1.png' %}" class="img-fluid" alt="Sample image">

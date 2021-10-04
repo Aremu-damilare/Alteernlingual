@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Alteernlingual - {{ topic.title}}{% endblock %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+{% include '../auth_user/userNav.html' %}
+
+
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+
+<section >
+    <div class="container">
+      <br><br>
+          <div class="card text-center">
+                  <div class="card-header">
+                   <i class="fas fa-book-open"></i> Select a <b> Lanuage of Interest</b>  you wish to learn
+                  </div>
+                  <div class="card-body">
+                    <img src="{% static 'img/readcart.png' %}"  width="200px"><br>
+                    <h5 class="card-title">I want to learn...</h5><br>
+
+                         {% for topic in topics %}
+                                <a  href="{% url 'subject:topics_detail' topic.pk %}"> {{ topic.title }}</a>  
+                         
+                        {% endfor %}
+                   <br><br>
+                   <!-- {% for cf in follow_cats %}
+                    <i> {{ cf.language}} selected. </i> 
+                      {% endfor %} -->
+                    <div>
+                      <i>
+                        You can learn only one Language at a time
+                      </i>
+                    
+                  </div>
+                  </div>
+                  
+                </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+
+{% include '../auth_user/auth_footer.html' %}
+
+ {% endblock %}
+

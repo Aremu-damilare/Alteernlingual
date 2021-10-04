@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Alteernlingual - Home{% endblock %}
+{% block title %}Alteɘrnligual - Home{% endblock %}
 {% load i18n %}
 {% block content %}
 {% load static %}
@@ -95,7 +95,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>{% trans "Our Features" %}</h2>
+          <h2>{% trans "Our features " %}</h2>
           </div>
 
         <div class="row no-gutters">
@@ -127,7 +127,22 @@
                   <h4>{% trans "Practice with audio feedbacks" %}</h4>
                   <p>{% trans "Users can listen to the sounds of all visible texts in both languages – language of interaction and language of interest." %} </p>
                 </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-atom"></i>
+                  <h4>{% trans "Partitioned interface" %}</h4>
+                  <p>{% trans "Both language of interaction and language of interest are paired side by side on a single display interface to enable users easily compare languages by relying on their knowledge of one language to effectively learn another" %}. </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-atom"></i>
+                  <h4>{% trans "Structured learning" %}</h4>
+                  <p>{% trans "Our language learning modules have been tailored for users in line with official curricula from the native roots of featured languages" %}. </p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-atom"></i>
+                  <h4>{% trans "Community of native speakers" %}</h4>
+                  <p>{% trans "Our community enables users to link up with one another to exchange ideas and maintain consistent practise with identified native speakers of specific languages" %}. </p>
+                </div>
+                <div class="col-md icon-box" data-aos="fade-up" >
                   <i class="bx bx-id-card"></i>
                   <h4>{% trans "Learn anytime anywhere" %}</h4>
                   <p>{% trans "Alteɘrnligual is available on both mobile and web so you can fit your language learning schedule to fit into your daily itinerary no matter where you are." %}</p>
@@ -153,13 +168,13 @@
           </div>
           <div class="col-md-8 pt-4" data-aos="fade-up">
             <h3>{% trans " High-quality resources " %}</h3>
-            <p>{% trans "We hold a list of carefully crafted resources. We have a team of in-house education professionals that are committed to optimizing the ways languages are taught and learnt."%}
-              {% trans "We currently have structured modules in Hausa, Igbo, Yoruba, English, and French languages." %} 
-            {% trans "  Each of the modules has been crafted to improve users’ reading, writing, listening, and speaking skills from beginners level through elementary, intermediate, upper intermediate, advanced to native speaker/proficiency level." %}
+            <p>{% blocktranslate %} We hold a list of carefully crafted resources. We have a team of in-house education professionals that are committed to optimizing the ways languages are taught and learnt.
+             We currently have structured modules in Hausa, Igbo, Yoruba, English, and French languages.
+              Each of the modules has been crafted to improve users’ reading, writing, listening, and speaking skills from beginners level through elementary, intermediate, upper intermediate, advanced to native speaker/proficiency level {% endblocktranslate %}.
             </p>
            
             <p>{% trans "You can follow the modules sequentially from start or skip to the stage you consider appropriately fit for you." %}
-               <br> {% trans "With our simplified and flexible modules, audio feedbacks, and partitioned interface features, we are confident users with little or no prior no knowledge can learn without difficulties." %}
+               <br> {% blocktranslate %} With our simplified and flexible modules, audio feedbacks, and partitioned interface features, we are confident users with little or no prior no knowledge can learn without difficulties {% endblocktranslate %}.
             </p>
           </div>
         </div>
@@ -170,7 +185,9 @@
           </div>
           <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
             <h3>{% trans " Practice with native speakers " %}</h3>
-            <p>{% trans " Our community enables users to link up with one another in order to maintain consistent practice with native speakers of their languages of interests " %}.
+            <p>{% blocktranslate %} Our community allows you to practice your language skills directly with professions/native speakers worldwide. You can post your writing exercise to the feeds timeline and have native speaker/s make personalised but constructive comments about your performance and progress. Vice versa, you get to comment and/or give corrections on other learners’ posts relating to your native language.
+              You also get to meet and know more people from around the world. You can favourite certain commenter/s and have the chance to exchange personal reviews and feedbacks in the future.
+               {% endblocktranslate %}.
             </p>
             <p>
               
@@ -267,23 +284,23 @@
           <div class="col-lg-6">
              <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-up">
               <div class="form-group">
-                <input placeholder="Your Name" type="text" name="name" class="form-control" id="name" required>
+                <input placeholder="{% trans 'Your Name' %}" type="text" name="name" class="form-control" id="name" required>
               </div>
               <div class="form-group mt-3">
-                <input placeholder="Your Email" type="email" class="form-control" name="email" id="email" required>
+                <input placeholder="{% trans 'Your Email' %}" type="email" class="form-control" name="email" id="email" required>
               </div>
               <div class="form-group mt-3">
-                <input placeholder="Subject" type="text" class="form-control" name="subject" id="subject" required>
+                <input placeholder=" {% trans 'Subject' %} " type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group mt-3">
-                <textarea placeholder="Message" class="form-control" name="message" rows="5" required></textarea>
+                <textarea placeholder=" {% trans 'Message' %}" class="form-control" name="message" rows="5" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">{% trans "Send Message" %}</button></div>
             </form>
           </div>
 
@@ -307,7 +324,7 @@
               <div class="col-lg-6 info">
                 <i class="bx bx-time-five"></i>
                 <h4>{% trans "Working Hours" %}</h4>
-                <p>{% trans "Mon - Fri: 09:00hours – 17:00hours<br>Saturday: 10:00hours – 14:00hours" %}</p>     
+                <p>{% trans "Mon - Fri: 09:00hours – 17:00hours " %} <br> {% trans " Saturday: 10:00hours – 14:00hours" %}</p>     
                 
               </div>
             </div>

@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-23 00:30+0100\n"
+"POT-Creation-Date: 2021-10-01 11:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,40 +18,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\Alteernlingual\settings.py:120 .\alteernlingual_user\models.py:23
-#: .\alteernlingual_user\models.py:31
-msgid "English"
-msgstr ""
-
-#: .\Alteernlingual\settings.py:121 .\alteernlingual_user\models.py:24
-#: .\alteernlingual_user\models.py:32
-msgid "Igbo"
-msgstr ""
-
 #: .\Alteernlingual\settings.py:122
-msgid "hausa"
-msgstr ""
-
-#: .\Alteernlingual\settings.py:123 .\alteernlingual_user\models.py:26
-#: .\alteernlingual_user\models.py:34
-msgid "Yoruba"
-msgstr ""
-
-#: .\Alteernlingual\settings.py:124 .\alteernlingual_user\models.py:28
-#: .\alteernlingual_user\models.py:36
 msgid "Arabic"
 msgstr ""
 
-#: .\Alteernlingual\settings.py:125 .\alteernlingual_user\models.py:27
-#: .\alteernlingual_user\models.py:35
+#: .\Alteernlingual\settings.py:123
+msgid "English"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:124
 msgid "French"
 msgstr ""
 
-#: .\Alteernlingual_topic\models.py:12
+#: .\Alteernlingual\settings.py:125
+msgid "hausa"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:126
+msgid "Igbo"
+msgstr ""
+
+#: .\Alteernlingual\settings.py:127
+msgid "Yoruba"
+msgstr ""
+
+#: .\Alteernlingual_topic\models.py:11 .\Alteernlingual_topic\models.py:42
+#: .\Alteernlingual_topic\models.py:90 .\alteernlingual_subjects\models.py:11
+#: .\alteernlingual_subjects\models.py:44
+#: .\alteernlingual_subjects\models.py:90
 msgid "title"
 msgstr ""
 
-#: .\Alteernlingual_topic\models.py:13
+#: .\Alteernlingual_topic\models.py:12 .\alteernlingual_subjects\models.py:12
 msgid "description"
 msgstr ""
 
@@ -63,108 +61,103 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: .\alteernlingual_user\models.py:25 .\alteernlingual_user\models.py:33
-msgid "Hausa"
-msgstr ""
-
-#: .\alteernlingual_user\models.py:54
+#: .\alteernlingual_user\models.py:30
 msgid "Profile"
 msgstr ""
 
-#: .\alteernlingual_user\models.py:55
+#: .\alteernlingual_user\models.py:31
 msgid "Profiles"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:117
-msgid "I want to learn...."
-msgstr "Je veux apprendre...."
-
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:122
-msgid "Alphabet"
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:102
+msgid "Learn languages easy way"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:133
-msgid "Proverbs"
+#: .\alteernlingual_user\templates\auth_user\userDashboard.html:125
+msgid "Learn a subject "
 msgstr ""
-
-#: .\alteernlingual_user\templates\auth_user\userDashboard.html:135
-msgid "language proverbs and their meaning."
-msgstr "les proverbes de la langue et leur signification."
 
 #: .\alteernlingual_user\templates\auth_user\userNav.html:22
+#: .\alteernlingual_user\templates\auth_user\userNavTopicDetail.html:22
 msgid "Change password"
-msgstr "changer le mot de passe"
+msgstr ""
 
 #: .\alteernlingual_user\templates\auth_user\userNav.html:27
+#: .\alteernlingual_user\templates\auth_user\userNavTopicDetail.html:27
 msgid "Dashboard"
-msgstr "tableau de bord"
+msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userNav.html:29
+#: .\alteernlingual_user\templates\auth_user\userNav.html:28
+#: .\alteernlingual_user\templates\auth_user\userNavTopicDetail.html:28
+msgid "Lessons"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userNav.html:30
+#: .\alteernlingual_user\templates\auth_user\userNavTopicDetail.html:29
+msgid "Subjects"
+msgstr ""
+
+#: .\alteernlingual_user\templates\auth_user\userNav.html:35
+#: .\alteernlingual_user\templates\auth_user\userNavTopicDetail.html:35
 msgid "Logout"
-msgstr "Se déconnecter"
+msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:46
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:47
 msgid "Select profile photo"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:56
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:57
 msgid "Choose Image"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:57
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:58
 msgid "JPG, GIF or PNG. Max size of 800K"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:69
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:70
 msgid "Profile information"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:73
-msgid "language to Learn(LTL)"
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:79
+msgid "First Name"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:84
-msgid "Language of Interaction(LOI)"
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:87
+msgid "Last Name"
 msgstr ""
 
 #: .\alteernlingual_user\templates\auth_user\userProfile.html:96
-msgid "First Name"
-msgstr "Prénom"
+msgid "Birthday"
+msgstr ""
 
 #: .\alteernlingual_user\templates\auth_user\userProfile.html:104
-msgid "Last Name"
-msgstr "la Nom"
-
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:113
-msgid "Birthday"
-msgstr "Date d'anniversaire"
-
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:121
 msgid "Gender"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:136
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:119
+#: .\alteernlingual_user\templates\footer.html:29
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:143
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:126
+#: .\alteernlingual_user\templates\footer.html:28
 msgid "Phone"
-msgstr ""
+msgstr "Le numéro de téléphone"
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:149
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:153
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:132
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:136
 msgid "Address"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:163
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:146
 msgid "City"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:171
-msgid "country"
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:154
+msgid "Country"
 msgstr ""
 
-#: .\alteernlingual_user\templates\auth_user\userProfile.html:178
+#: .\alteernlingual_user\templates\auth_user\userProfile.html:161
 msgid "Save All"
 msgstr ""
 
@@ -185,15 +178,15 @@ msgid "Home"
 msgstr ""
 
 #: .\alteernlingual_user\templates\footer.html:37
-msgid "Alteernlingual Story"
-msgstr "L’histoire d'Alteernlingual"
+msgid "Story"
+msgstr "L’histoire d'"
 
 #: .\alteernlingual_user\templates\footer.html:38
 msgid "Our Approach"
 msgstr "Notre approche"
 
 #: .\alteernlingual_user\templates\footer.html:39
-#: .\alteernlingual_user\templates\registration\signup.html:129
+#: .\alteernlingual_user\templates\registration\signup.html:131
 msgid "Terms of Service"
 msgstr "Termes et services"
 
@@ -222,8 +215,10 @@ msgid "Blog"
 msgstr "Blog"
 
 #: .\alteernlingual_user\templates\footer.html:51
-msgid "Partner with Alteernlingual"
-msgstr "Associer avec Alteernlingual"
+#, fuzzy
+#| msgid "What can I learn on Alteernlingual "
+msgid "Partner with "
+msgstr "Qu’est-ce que’on peut apprendre sur Alteɘrnligual?"
 
 #: .\alteernlingual_user\templates\footer.html:56
 msgid "Our Social Networks"
@@ -237,71 +232,73 @@ msgstr ""
 msgid "All Rights Reserved"
 msgstr ""
 
-#: .\alteernlingual_user\templates\footer.html:80
+#: .\alteernlingual_user\templates\footer.html:76
 msgid "Designed by  "
 msgstr ""
 
-#: .\alteernlingual_user\templates\guestHeader.html:41
-#, fuzzy
-#| msgid "Our Features"
+#: .\alteernlingual_user\templates\guestHeader.html:21
 msgid "Features"
 msgstr "Fonctionnalités"
 
-#: .\alteernlingual_user\templates\guestHeader.html:42
+#: .\alteernlingual_user\templates\guestHeader.html:22
 msgid "F.A.Q"
-msgstr ""
+msgstr "FAQ"
 
-#: .\alteernlingual_user\templates\guestHeader.html:44
-#: .\alteernlingual_user\templates\index.html:234
+#: .\alteernlingual_user\templates\guestHeader.html:24
+#: .\alteernlingual_user\templates\index.html:276
 msgid "Contact"
 msgstr "Contact"
 
-#: .\alteernlingual_user\templates\guestHeader.html:45
+#: .\alteernlingual_user\templates\guestHeader.html:25
 msgid "Get Started"
 msgstr "Veuillez commencer"
 
-#: .\alteernlingual_user\templates\index.html:20
-msgid "The Language Learning Platform"
-msgstr "La plateforme d'apprentissage des langues"
-
 #: .\alteernlingual_user\templates\index.html:21
-msgid "Our ultimate goal is to give everyone access to a language learning experience through technology"
-msgstr "Notre but ultime est de vous donner l’access à une expérience unique qui vous permettra d’apprendre une langue, grâce à la technologie. "
+msgid "The Language Learning Platform"
+msgstr "La platforme d’apprendre une langue"
 
-#: .\alteernlingual_user\templates\index.html:25
-#: .\alteernlingual_user\templates\registration\login.html:108
+#: .\alteernlingual_user\templates\index.html:22
+msgid ""
+"Our ultimate goal is to give everyone access to a language learning "
+"experience through technology"
+msgstr ""
+"Notre but ultime est de vous donner l’access à une expérience unique qui "
+"vous permettra d’apprendre une langue, grâce à la technologie. "
+
+#: .\alteernlingual_user\templates\index.html:26
+#: .\alteernlingual_user\templates\registration\login.html:110
 msgid "Login"
 msgstr "Connecter"
 
-#: .\alteernlingual_user\templates\index.html:26
+#: .\alteernlingual_user\templates\index.html:27
 msgid "Sign Up"
-msgstr "S'inscrire"
+msgstr "S'incrire"
 
-#: .\alteernlingual_user\templates\index.html:73
-msgid "Our Features"
+#: .\alteernlingual_user\templates\index.html:98
+msgid "Our features "
 msgstr "Nos fonctionalités"
 
-#: .\alteernlingual_user\templates\index.html:82
+#: .\alteernlingual_user\templates\index.html:107
 msgid "Signup "
-msgstr "S'inscrire"
+msgstr " S'incrire "
 
-#: .\alteernlingual_user\templates\index.html:83
+#: .\alteernlingual_user\templates\index.html:108
 msgid "Complete the few steps of registration and enjoy a free module! "
-msgstr "Completer les étapes d’inscrire et jouir un module gratuit."
+msgstr "Completer les étapes d’inscrire et jouir un module gratuit"
 
-#: .\alteernlingual_user\templates\index.html:87
+#: .\alteernlingual_user\templates\index.html:112
 msgid "Maintain a profile"
 msgstr "Maintenir un profil d'utilisateur"
 
-#: .\alteernlingual_user\templates\index.html:88
+#: .\alteernlingual_user\templates\index.html:113
 msgid "You have your profile automatically set up upon signing up."
 msgstr "Votre profil est mis en place automatiquement."
 
-#: .\alteernlingual_user\templates\index.html:92
+#: .\alteernlingual_user\templates\index.html:117
 msgid "Choose language of interaction"
 msgstr "Choisir la langue d’interaction"
 
-#: .\alteernlingual_user\templates\index.html:93
+#: .\alteernlingual_user\templates\index.html:118
 msgid ""
 "Users get to select a language they understand by which they read along to "
 "learn another language (language of interest)."
@@ -309,11 +306,11 @@ msgstr ""
 "Les utiilisateurs peuvent choisir une langue qu'ils comprennent, par "
 "laquelle ils lisent les textes dans une autre langue. (Langue d'intérêt)"
 
-#: .\alteernlingual_user\templates\index.html:97
+#: .\alteernlingual_user\templates\index.html:122
 msgid "Choose language of interest"
 msgstr "Choisir la langue d’intérêt"
 
-#: .\alteernlingual_user\templates\index.html:98
+#: .\alteernlingual_user\templates\index.html:123
 msgid ""
 "Language of interest is the language a user desires to learn at a given "
 "time. They appear in the original language texts with audio feedbacks. "
@@ -322,11 +319,11 @@ msgstr ""
 "un temps donné. Ils apparaisent dans la langue originelle des textes avec "
 "les audios feedbacks."
 
-#: .\alteernlingual_user\templates\index.html:102
+#: .\alteernlingual_user\templates\index.html:127
 msgid "Practice with audio feedbacks"
 msgstr "Pratiquer avec les audios feedbacks "
 
-#: .\alteernlingual_user\templates\index.html:103
+#: .\alteernlingual_user\templates\index.html:128
 msgid ""
 "Users can listen to the sounds of all visible texts in both languages – "
 "language of interaction and language of interest."
@@ -334,11 +331,52 @@ msgstr ""
 "Les utilisateurs peuvent écouter des sons de touts des textes qui sont "
 "visibles dans les deux langues. La langue d'interaction et langue d'intérêt"
 
-#: .\alteernlingual_user\templates\index.html:107
+#: .\alteernlingual_user\templates\index.html:132
+msgid "Partitioned interface"
+msgstr "Interface partitionée"
+
+#: .\alteernlingual_user\templates\index.html:133
+msgid ""
+"Both language of interaction and language of interest are paired side by "
+"side on a single display interface to enable users easily compare languages "
+"by relying on their knowledge of one language to effectively learn another"
+msgstr ""
+"Les deux langues (langue d'interaction et langue d'intérêt) sont placé à la "
+"fois l'un à côté de l'autre pour permettre les utilisateurs de comparer les "
+"langues, en utilisant leur connaissance d’une langue pour apprendre une "
+"autre langue effectivement"
+
+#: .\alteernlingual_user\templates\index.html:137
+msgid "Structured learning"
+msgstr "Apprentissage structurée"
+
+#: .\alteernlingual_user\templates\index.html:138
+msgid ""
+"Our language learning modules have been tailored for users in line with "
+"official curricula from the native roots of featured languages"
+msgstr ""
+"Les modules pour apprendre les langues peuvent etre utlilisés avec la cursus "
+"des langues figurées, du point de vue des locuteurs natifs"
+
+#: .\alteernlingual_user\templates\index.html:142
+msgid "Community of native speakers"
+msgstr "La communauté de locuteurs natifs"
+
+#: .\alteernlingual_user\templates\index.html:143
+msgid ""
+"Our community enables users to link up with one another to exchange ideas "
+"and maintain consistent practise with identified native speakers of specific "
+"languages"
+msgstr ""
+"La communauté permet les utiilisateurs d'avoir une connection les uns avec "
+"les autres pour pouvoir exchanger les idées et continuer une relation avec "
+"les locuteurs natifs de langues spécifiques"
+
+#: .\alteernlingual_user\templates\index.html:147
 msgid "Learn anytime anywhere"
 msgstr "Apprendre n'importe où n'importe quand"
 
-#: .\alteernlingual_user\templates\index.html:108
+#: .\alteernlingual_user\templates\index.html:148
 msgid ""
 "Alteɘrnligual is available on both mobile and web so you can fit your "
 "language learning schedule to fit into your daily itinerary no matter where "
@@ -347,98 +385,93 @@ msgstr ""
 "Alteɘrnligual est disponible sur le portable aussi bien que le web pour vous "
 "aider à apprendre n'importe où et n'importe quand vous voulez"
 
-#: .\alteernlingual_user\templates\index.html:130
-#, fuzzy
-#| msgid "High-quality resources"
+#: .\alteernlingual_user\templates\index.html:170
 msgid " High-quality resources "
 msgstr "Les ressources de haute qualité"
 
-#: .\alteernlingual_user\templates\index.html:131
+#: .\alteernlingual_user\templates\index.html:171
 msgid ""
-"We hold a list of carefully crafted resources. We have a team of in-house "
+" We hold a list of carefully crafted resources. We have a team of in-house "
 "education professionals that are committed to optimizing the ways languages "
-"are taught and learnt."
+"are taught and learnt.\n"
+"             We currently have structured modules in Hausa, Igbo, Yoruba, "
+"English, and French languages.\n"
+"              Each of the modules has been crafted to improve users’ "
+"reading, writing, listening, and speaking skills from beginners level "
+"through elementary, intermediate, upper intermediate, advanced to native "
+"speaker/proficiency level "
 msgstr ""
 "Nous avons une liste des ressources soigneusement preparée. Nous avons un "
 "groupe d'educateurs professionels qui sont dédiés à ameliorer les façons "
-"d'enseigner et d'apprendre une langue ."
+"d'enseigner et d'apprendre une langue. Actuellement, nous avons les modules "
+"en Hausa, Igbo, Yoruba, Anglais et français. Chaque module est dessiné pour "
+"ameliorer la lecture, écriture, ecoute, et parler des utilisateurs du niveau "
+"des debutants jusqu’au niveau elementaire, intermédiaire, intermédiaire du "
+"niveau supérieur, et jusqu'à achever le linguistiques compétences en tant "
+"que locuteurs natifs.  "
 
-#: .\alteernlingual_user\templates\index.html:132
-msgid ""
-"We currently have structured modules in Hausa, Igbo, Yoruba, English, and "
-"French languages."
-msgstr ""
-"Actuellement, nous avons les modules en Hausa, Igbo, Yoruba, Anglais et "
-"français. "
-
-#: .\alteernlingual_user\templates\index.html:133
-msgid ""
-"  Each of the modules has been crafted to improve users’ reading, writing, "
-"listening, and speaking skills from beginners level through elementary, "
-"intermediate, upper intermediate, advanced to native speaker/proficiency "
-"level."
-msgstr ""
-"Chaque module est dessiné pour ameliorer la lecture, écriture, ecoute, et "
-"parler des utilisateurs du niveau des debutants jusqu’au niveau elementaire, "
-"intermédiaire, intermédiaire du niveau supérieur, et jusqu'à achever le "
-"linguistiques compétences en tant que locuteurs natifs. "
-
-#: .\alteernlingual_user\templates\index.html:136
+#: .\alteernlingual_user\templates\index.html:176
 msgid ""
 "You can follow the modules sequentially from start or skip to the stage you "
 "consider appropriately fit for you."
 msgstr ""
 "Vous pouvez suivre les modules séquentiellement dès le début ou sauter "
-"quelques etapes pour arriver aux etapes qui sont convenable pour vous. Avec "
-"notre module flexible, feedback audios et fonctionalités de l'interface "
+"quelques etapes pour arriver aux etapes qui sont convenable pour vous"
+
+#: .\alteernlingual_user\templates\index.html:177
+msgid ""
+" With our simplified and flexible modules, audio feedbacks, and partitioned "
+"interface features, we are confident users with little or no prior no "
+"knowledge can learn without difficulties "
+msgstr ""
+"Avec notre module flexible, feedback audios et fonctionalités de l'interface "
 "partitionée, nous avons la confiance que les utiilisateurs qui ont peu ou "
 "aucune connaissance peuvent apprendre les langues sans difficultés."
 
-#: .\alteernlingual_user\templates\index.html:137
-msgid ""
-"With our simplified and flexible modules, audio feedbacks, and partitioned "
-"interface features, we are confident users with little or no prior no "
-"knowledge can learn without difficulties."
-msgstr ""
-
-#: .\alteernlingual_user\templates\index.html:147
-#, fuzzy
-#| msgid "Practice with audio feedbacks"
-msgid "Practice with native speakers"
+#: .\alteernlingual_user\templates\index.html:187
+msgid " Practice with native speakers "
 msgstr "Pratiquer avec les locuteurs natifs"
 
-#: .\alteernlingual_user\templates\index.html:148
-#, fuzzy
-#| msgid ""
-#| "Our community enables users to link up with one another in order to "
-#| "maintain consistent practice with native speakers of their languages of "
-#| "interests"
+#: .\alteernlingual_user\templates\index.html:188
 msgid ""
-" Our community enables users to link up with one another in order to "
-"maintain consistent practice with native speakers of their languages of "
-"interests "
+" Our community allows you to practice your language skills directly with "
+"professions/native speakers worldwide. You can post your writing exercise to "
+"the feeds timeline and have native speaker/s make personalised but "
+"constructive comments about your performance and progress. Vice versa, you "
+"get to comment and/or give corrections on other learners’ posts relating to "
+"your native language.\n"
+"              You also get to meet and know more people from around the "
+"world. You can favourite certain commenter/s and have the chance to exchange "
+"personal reviews and feedbacks in the future.\n"
+"               "
 msgstr ""
-"La communauté permet les utiilisateurs d'avoir une connection les uns avec "
-"les autres pour pouvoir exchanger les idées et continuer une relation avec "
-"les locuteurs natifs de langues spécifiques."
+"Notre communauté vous permettre de pratiquer votre compétences linguistiques "
+"directment avec les locuteurs natifs partout dans le monde. Vous pouvez "
+"poster vos ecritures sur le timeline et les faire corrigés par les locuteurs "
+"natifs, en faisant des commentaires constructifs sur votre performance et "
+"progrès. Aussi, Vous pouvez critiquer l’ecriture des autruis, on ce qui "
+"concerne votre langue maternelle. Également, vous pouvez rencontrer plus de "
+"gens autour du monde. Aussi, vous pouvez faire des amis parmi les gens qui "
+"font des commentaires et exchanger les revues privées et feedbacks avec eux "
+"en l'avenir"
 
-#: .\alteernlingual_user\templates\index.html:181
+#: .\alteernlingual_user\templates\index.html:223
 msgid "Frequently Asked Questions"
 msgstr "Les questions les plus posées"
 
-#: .\alteernlingual_user\templates\index.html:188
+#: .\alteernlingual_user\templates\index.html:230
 msgid "Is Alteernlingual free? "
 msgstr "Est-ce qu' Alteɘrnligual est gratuit?"
 
-#: .\alteernlingual_user\templates\index.html:190
+#: .\alteernlingual_user\templates\index.html:232
 msgid "No. Users get to enjoy Alteɘrnligual services based on subscriptions."
 msgstr "Non, les utilisateurs peuvent profiter de nos services en abonnant."
 
-#: .\alteernlingual_user\templates\index.html:196
+#: .\alteernlingual_user\templates\index.html:238
 msgid "Do I get a certificate after learning?"
-msgstr "Es-ce qu’il y a un diplôme à la fin d'apprentissage?"
+msgstr "Es-ce qu’il y a un diplôme à la fin d'apprentissage"
 
-#: .\alteernlingual_user\templates\index.html:198
+#: .\alteernlingual_user\templates\index.html:240
 msgid ""
 "When users take exercises after completing a module, the grades and number "
 "of attempts are automatically recorded on users’ profile with printable "
@@ -449,127 +482,150 @@ msgstr ""
 "sur le profile de chaque utilisateur. Ils peuvent aussi imprimer ces "
 "exercices."
 
-#: .\alteernlingual_user\templates\index.html:204
+#: .\alteernlingual_user\templates\index.html:246
 msgid "What can I learn on Alteernlingual "
 msgstr "Qu’est-ce que’on peut apprendre sur Alteɘrnligual?"
 
-#: .\alteernlingual_user\templates\index.html:206
+#: .\alteernlingual_user\templates\index.html:248
+#, fuzzy
+#| msgid ""
+#| " Users get to learn African and other international languages in "
+#| "structured ways using their knowledge of one language to learn another"
 msgid ""
 " Users get to learn African and other international languages in structured "
 "ways using their knowledge of one language to learn another."
 msgstr ""
-"Les utilisateurs apprennent les langues africaines et internationales de "
-"manière structurée en utilisant leur connaissance d'une langue pour en "
-"apprendre une autre."
+"Les utilisateurs peuvent apprendre les langues africaines et les autres "
+"langues internationales dans une façon structurée, en utilisant leur "
+"connaissance d’une langue à apprendre une autre"
 
-#: .\alteernlingual_user\templates\index.html:212
+#: .\alteernlingual_user\templates\index.html:254
 msgid "Is there a duration for one to finish learning a language"
 msgstr "Est-qu’il y a une durée permanente pour apprendre une langue"
 
-#: .\alteernlingual_user\templates\index.html:214
+#: .\alteernlingual_user\templates\index.html:256
 msgid ""
 "Not exactly. However, the modules are spread to improve users’ reading, "
 "writing, listening, and speaking skills from beginners level through "
 "elementary, intermediate, upper intermediate, advanced to native speaker/"
 "proficiency level."
 msgstr ""
-"Pas exactement. Cependant, les modules sont répartis pour améliorer les "
-"compétences de lecture, d'écriture, d'écoute et d'expression orale des "
-"utilisateurs, du niveau débutant au niveau élémentaire, intermédiaire, "
-"intermédiaire supérieur, avancé au locuteur natif."
+"Pas exactement. Néanmoins, les modules sont répartis pour améliorer la "
+"lecture, ecriture, ecoute et expression des utilisateurs du niveau des "
+"debutants jusqu’au niveau elementaire, intermédiaire, le plus intermédiaire, "
+"et jusqu'à achever le linguistiques compétence en tant que locuteurs natifs "
 
-#: .\alteernlingual_user\templates\index.html:215
+#: .\alteernlingual_user\templates\index.html:257
 msgid ""
 "Users can follow the modules sequentially from start or skip to the stage "
 "they consider appropriately fit for them."
-msgstr "Les utilisateurs peuvent suivre les modules dès le début ou l'omettre, pour commencer de l’étape qui est convenable ou approprié pour les apprentissage."
+msgstr ""
+"Les utilisateurs peuvent suivre les modules dès le début ou l'omettre, pour "
+"commencer de l’étape qui est convenable ou approprié pour les apprentissage"
 
-#: .\alteernlingual_user\templates\index.html:235
+#: .\alteernlingual_user\templates\index.html:277
 msgid ""
 "Please enter the details of your request. A member of our support staff will "
 "respond as soon as possible."
 msgstr ""
-" S’il vous plait, Il faut entrer les détails de votre requête. Un membre de "
-"notre personnel vous répondra aussitôt que possible."
+"S’il vous plait, Il faut entrer les détails de votre requête. Un membre de "
+"notre personnel vous répondra aussitôt que possible"
 
-#: .\alteernlingual_user\templates\index.html:269
+#: .\alteernlingual_user\templates\index.html:287
+#, fuzzy
+#| msgid "Your Email"
+msgid "Your Name"
+msgstr "Votre Nom"
+
+#: .\alteernlingual_user\templates\index.html:290
+#: .\alteernlingual_user\templates\registration\signup.html:94
+msgid "Your Email"
+msgstr "Votre Email"
+
+#: .\alteernlingual_user\templates\index.html:293
+msgid "Subject"
+msgstr "Le sujet"
+
+#: .\alteernlingual_user\templates\index.html:296
+msgid "Message"
+msgstr "Le message"
+
+#: .\alteernlingual_user\templates\index.html:303
+msgid "Send Message"
+msgstr "Envoyer Votre Message"
+
+#: .\alteernlingual_user\templates\index.html:311
 msgid "Registered Address"
 msgstr "Adresse enregistrée"
 
-#: .\alteernlingual_user\templates\index.html:270
+#: .\alteernlingual_user\templates\index.html:312
 msgid "Lagos, Nigeria"
-msgstr ""
+msgstr "Lagos, Nigeria"
 
-#: .\alteernlingual_user\templates\index.html:274
+#: .\alteernlingual_user\templates\index.html:316
 msgid "Operation Office"
-msgstr "Le bureau opérationel"
-
-#: .\alteernlingual_user\templates\index.html:275
-msgid "Abuja, Nigeria"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:279
+#: .\alteernlingual_user\templates\index.html:317
+msgid "Abuja, Nigeria"
+msgstr "Abuja, Nigeria"
+
+#: .\alteernlingual_user\templates\index.html:321
 msgid "Email Us"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:280
+#: .\alteernlingual_user\templates\index.html:322
 msgid "contact@alteernlingual.com<br>info@alteernlingual.com"
 msgstr ""
 
-#: .\alteernlingual_user\templates\index.html:284
+#: .\alteernlingual_user\templates\index.html:326
 msgid "Working Hours"
 msgstr "Heures d'ouvertures"
 
-#: .\alteernlingual_user\templates\index.html:285
-msgid "Mon - Fri: 09:00hours – 17:00hours<br>Saturday: 10:00hours – 14:00hours"
-msgstr ""
-"Lundi à Vendredi: 09:00 heures – 17:00 heures <br>Samedi: 10:00 heures – "
-"14:00 heures "
+#: .\alteernlingual_user\templates\index.html:327
+msgid "Mon - Fri: 09:00hours – 17:00hours "
+msgstr "Lundi à Vendredi: 09:00 heures – 17:00 heures"
 
-#: .\alteernlingual_user\templates\registration\login.html:94
+#: .\alteernlingual_user\templates\index.html:327
+msgid " Saturday: 10:00hours – 14:00hours"
+msgstr "Samedi: 10:00 heures – 14:00 heures "
+
+#: .\alteernlingual_user\templates\registration\login.html:96
 msgid "Sign into your account"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\login.html:111
-#, fuzzy
-#| msgid "Change password"
-msgid "Forgot password?"
-msgstr "changer le mot de passe"
-
-#: .\alteernlingual_user\templates\registration\login.html:112
-msgid "Don't have an account? "
-msgstr ""
-
-#: .\alteernlingual_user\templates\registration\login.html:112
-msgid "Register here"
-msgstr ""
-
 #: .\alteernlingual_user\templates\registration\login.html:113
-msgid "Terms of use."
+msgid "Forgot password?"
 msgstr ""
 
 #: .\alteernlingual_user\templates\registration\login.html:114
+msgid "Don't have an account? "
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:114
+msgid "Register here"
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:115
+msgid "Terms of use."
+msgstr ""
+
+#: .\alteernlingual_user\templates\registration\login.html:116
 msgid "Privacy policy"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\signup.html:81
+#: .\alteernlingual_user\templates\registration\signup.html:83
 msgid "Username"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\signup.html:92
-msgid "Your Email"
+#: .\alteernlingual_user\templates\registration\signup.html:107
+msgid "Password"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\signup.html:105
-#, fuzzy
-#| msgid "Change password"
-msgid "Password"
-msgstr "changer le mot de passe"
-
-#: .\alteernlingual_user\templates\registration\signup.html:116
+#: .\alteernlingual_user\templates\registration\signup.html:118
 msgid "Password Check"
 msgstr ""
 
-#: .\alteernlingual_user\templates\registration\signup.html:129
+#: .\alteernlingual_user\templates\registration\signup.html:131
 msgid " By clicking on Sign Up you agree to our"
 msgstr ""

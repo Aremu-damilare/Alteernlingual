@@ -10,13 +10,14 @@
   <section >
     <div class="container">
       <br><br>
-       
+      
        <br><br>
                 <div class="card text-center">
                   <div class="card-header">
                    <i class="fas fa-book-open"></i> Select a <b> Lanuage of Interest</b>  you wish to learn
                   </div>
-                  <div class="card-body"><img src="{% static 'img/happy.gif' %}"  width="200px">
+                  <div class="card-body">
+                  	<img src="{% static 'img/readcart.png' %}"  width="200px"><br>
                     <h5 class="card-title">I want to learn...</h5><br>
 
                          {% for cate in language %}
@@ -80,7 +81,8 @@
                       {% for c in cou %}        
                           <ul class="list-group">
                             <li class="list-group-item">
-                               <i class="fas fa-certificate"></i>{{c.skill.category}}<a href="{% url 'detail'  c.pk %}" style="font-size: 20px;">  {{ c.title }} </a> <hr>
+                               <i class="fas fa-certificate"></i>{{c.skill.category}}
+                               <a href="{% url 'detail'  c.pk %}" style="font-size: 14px;">  {{ c.title }} </a> 
 
                             </li> 
                           </ul>

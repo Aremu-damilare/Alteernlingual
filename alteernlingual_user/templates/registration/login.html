@@ -111,7 +111,11 @@
                   </div>
 
                   <a class="small text-muted" href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a>
+                   <p>Sign in using <br>
+                    <button><a href="{% url 'social:begin' 'twitter' %}">Twitter</a></button> or <button> <a class="download-btn" href="{% url 'social:begin' 'facebook' %}">Facebook</a></button></p>
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">{% trans "Don't have an account? " %}<a href="{% url 'signup' %}" style="color: #393f81;">{% trans "Register here" %}</a></p>
+
+
                   <a href="#!" class="small text-muted">{% trans "Terms of use." %}</a>
                   <a href="#!" class="small text-muted">{% trans "Privacy policy" %}</a>
                 </form>

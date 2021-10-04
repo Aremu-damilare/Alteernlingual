@@ -37,6 +37,8 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
 
+
+    path('oauth/', include('social_django.urls', namespace='social')),  # social-auth
     path('terms-of-service/', views.termsOfService, name='termsOfService'),
     path('privacy-policy/', views.privacyPolicy, name='privacyPolicy'),
     path('partner-with-us/', views.partnerWithUS, name='partnerWithUS'),

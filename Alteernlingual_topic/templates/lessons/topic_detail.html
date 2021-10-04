@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}Alteernlingual - {{topic.title}}{% endblock %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+
+
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
-<link href=" {% static 'css/audio-custom.css' %} " rel="stylesheet">
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script> 
 
 {% include '../auth_user/userNavTopicDetail.html' %}
 
@@ -12,16 +20,18 @@
     <div class="container">
       <br><br>
             <h6>Select lanuage of interaction:
-              {% for l in loi %} 
-              {% if user.id not in l.all_user %}          
-           <a class="btn" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
-                   {% else %} 
-           <a class="btn btn"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
-           {% endif %}
-          {% endfor %}
+                  {% for l in loi %} 
+                      {% if user.id not in l.all_user %}          
+                         <a class="btn" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
+                                 {% else %} 
+                         <a class="btn btn"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
+                   {% endif %}
+              {% endfor %}
             </h6>
         <br><br>
-
+  
+ <button class="btn btn-outline-primary" onclick="goBack()"> <i class="fas fa-fast-backward"></i></button>
+   <br><br>
   <style>
     table {
       margin-left: auto;
@@ -58,6 +68,7 @@
                         {{ loi.loi }}
                       {% endfor %}
                     </b>   <hr></h6>
+
                 {% for i in follow_cats %}
                   
                   {% if i.loi.num == 1 %}
@@ -66,6 +77,11 @@
 
                   {% if i.loi.num == 2 %}
                     {{topic.EN_title | safe}}
+                    {% if topic.audio_file_en %}
+                      <audio id="{{ topic.audio_file_en }}" src="{{ topic.audio_file_en.url }}"></audio>
+                    <button class="btn btn-link" onclick="document.getElementById('{{ topic.audio_file_en }}').play()"><i class="fas fa-volume-up"></i></button>
+                    {% endif %}
+
                   {% endif %}
 
                   {% if i.loi.num == 3 %}
@@ -82,6 +98,10 @@
 
                   {% if i.loi.num == 6 %}
                     {{topic.YO_title | safe}}
+                    {% if topic.audio_file_yo %}
+                      <audio id="{{ topic.audio_file_yo }}" src="{{ topic.audio_file_yo.url }}"></audio>
+                    <button class="btn btn-link" onclick="document.getElementById('{{ topic.audio_file_yo }}').play()"><i class="fas fa-volume-up"></i></button>
+                    {% endif %}
                   {% endif %}
 
                 {% endfor %}
@@ -95,6 +115,11 @@
           </b>  
            <hr></h6>
         {{topic.main_title | safe}}
+        {% if topic.audio_main_title %}
+               <audio id="{{ topic.audio_main_title }}" src="{{ topic.audio_main_title.url }}"></audio>
+                <button class="btn btn-link" onclick="document.getElementById('{{ topic.audio_main_title }}').play()"><i class="fas fa-volume-up"></i></button>
+              {% else %}
+            {% endif %}
         </td>
        
       </tr>
@@ -112,7 +137,13 @@
                   {% endif %}
 
                   {% if i.loi.num == 2 %}
+
                     {{topicdetail.EN_explanations | safe}}
+                     {% if topicdetail.audio_file_en %}
+                      <audio id="{{ topicdetail.audio_file_en }}" src="{{ topicdetail.audio_file_en.url }}"></audio>
+                    <button class="btn btn-link" onclick="document.getElementById('{{ topicdetail.audio_file_en }}').play()"><i class="fas fa-volume-up"></i></button>
+                    {% endif %}
+
                   {% endif %}
 
                   {% if i.loi.num == 3 %}
@@ -125,19 +156,35 @@
 
                   {% if i.loi.num == 5 %}
                     {{topicdetail.IG_explanations | safe}}
+                    <audio id="player" src="{{ topicdetail.audio_file_ig %}"></audio>
+                    <button onclick="document.getElementById('player').play()">Play</button>
                   {% endif %}
 
                   {% if i.loi.num == 6 %}
-                    {{topicdetail.YO_explanations | safe}}
+                  
+                      {{topicdetail.YO_explanations | safe}}
+                    
+                    
+                      {% if topicdetail.audio_file_yo %}
+                      <audio id="{{ topicdetail.audio_file_yo }}" src="{{ topicdetail.audio_file_yo.url }}"></audio>
+                    <button class="btn btn-link" onclick="document.getElementById('{{ topicdetail.audio_file_yo }}').play()"><i class="fas fa-volume-up"></i></button>
+                    {% endif %}
+                    
+                    
                   {% endif %}
 
                 {% endfor %}
                
-          </td>
-                    
+          </td>      
         <td>
        
-      {{ topicdetail.main_explanations | safe}}
+            {{ topicdetail.main_explanations | safe}}
+            {% if topicdetail.audio_main %}
+               <audio id="{{ topicdetail.audio_main }}" src="{{ topicdetail.audio_main.url }}"></audio>
+                <button class="btn btn-link" onclick="document.getElementById('{{ topicdetail.audio_main }}').play()"><i class="fas fa-volume-up"></i></button>
+              {% else %}
+             
+            {% endif %}
        
         </td>
       </tr>
@@ -154,6 +201,12 @@
                             <small style="color: blue;"> Click on the "Unread" button to remove topic from read memory.</small>
                         {% endif %}
   </center>
+
+                   <!--  <form action="{% url 'add_comment' object.pk %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {{ form|crispy }}
+                       <button class="btn btn-dark btn-lg btn-block" type="submit">{% trans "add" %}</button>
+                    </form> -->
 </body>
      
        </div>               

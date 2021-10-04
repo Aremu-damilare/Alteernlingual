@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Alteernlingual - Search {% endblock %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+{% include '../auth_user/userNav.html' %}
+
+<!-- <link href=" {% static 'css/volt.css' %} " rel="stylesheet"> -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+<p>Search Alteɘrnligual</p>
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %} 
+    <input type="text" name="name"><br>
+    <input type="submit" name="submit" value="Search">
+</form>
+
+<br><br>
+					{% if results %}
+						<p> You searced for "{{ query_name }}" </p>
+						{% for result in results %}
+							<div><h4><i class="fas fa-book-open"></i> <a href="{{result.get_url}}"> {{result.title}}</a></h4>
+										 <p>{{result.main_explanations | safe}}</p>
+										<p> <i> (topic: {{result.subtopic}} ) ({{result.language}} language )</i> </p><hr>
+
+
+							</div>
+						{% endfor %}
+							{% else %}
+
+							<div>
+								    <h4><i class="fas fa-book-open"></i> search using the search bar!</h4>
+										
+							</div>
+				{% endif %}
+
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+
+{% include '../auth_user/auth_footer.html' %}
+
+ {% endblock %}
+

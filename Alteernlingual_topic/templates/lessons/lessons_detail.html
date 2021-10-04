@@ -12,10 +12,16 @@
   <section>
 
     <div class="container">  
-       <br><br>
+       <br><br><br>
 
        <div>
-  
+  {% for cate in language %}
+                                        
+                                 
+                         
+
+
+                        {% endfor %}
 </div>
  <div class="card text-center">
                   <div class="card-header">
@@ -24,18 +30,29 @@
 
                   </div>
                   <div class="card-body">
-                   <ul class="list-group">
-                        {% for c in subtopic %}
-                          <li class="list-group-item list-group-item-info">
-                            <i class="fas fa-caret-right"></i><a href="{% url 'topic_detail'  c.pk %}" style="font-size: 20px;"> {{ c.title }} </a> <hr>
-                          </li>
-                        {% endfor %}
+                    <i>
+                      Select a topic and continue to dual display
+                    </i>
+                    <br>
+                    <br>
+                   <ul class="list-group" style="text-align: left;">
+                       
+
+                        <li class="list-group-item list-group-item-info">
+                           {% for c in subtopic %}
+                            
+                                <i class="fas fa-caret-right"></i><a href="{% url 'topic_detail'  c.pk %}" style="font-size: 15px;"> {{ c.title }} </a>
+
+                                 <hr>
+                                
+                              {% endfor %}
+                        </li>
+
+                          
                     </ul>           
                    <br><br>
                     <div>
-                      <i>
-                        Select a topic and continue to dual display
-                      </i>
+                      
                     
                   </div>
                   </div>

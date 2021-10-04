@@ -1,80 +1,188 @@
 {% extends 'base.html' %}
-{% block title %}Alteernlingual - {{ topic.title}}{% endblock %}
+{% block title %}Alteernlingual - Subjects {% endblock %}
 {% load i18n %}
 {% load static %}
 {% block content %}
 
-{% include '../auth_user/userNav.html' %}
+{% include '../auth_user/userNavTopicDetail.html' %}
 
 
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
 
-<section >
-    <div class="container">
-      <br><br><br>
-            <h6>Select lanuage of interaction:
-              {% for l in loi %} 
-              {% if user.id not in l.all_user %}          
-           <a class="btn" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
-                   {% else %} 
-           <a class="btn btn"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
-           {% endif %}
-          {% endfor %}
+<section id="features" class="features">
+      <div class="container">
+      		
+<br>
+  <br>
+    <br>
+      <br>
+      <p> Select the language you wish to be taught in below</p>
+      		<br>
+                  <div class="table-responsive">
+  <table class="table table-striped">
+  <tbody>
+    <tr class="table-light"> 
+      <td>
+        <form name="languageAr" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="ar" />
+                        <a href="javascript:document.languageAr.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'ar' %}
+                        <i style="color: blue">Arabic</i>
+                        {% else %}
+                        Arabic
+                        {% endif %}
+                       </a>
+                      </form> 
+      </td>
+
+      <td>
+          <form name="languageEn" action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="en" />
+                        <a href="javascript:document.languageEn.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'en' %}
+                        <i style="color: blue">English</i>
+                        {% else %}
+                        English
+                        {% endif %}
+                       </a>
+                      </form>
+      </td>
+
+      <td>
+         <form name="languageFr" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="fr" />
+                        <a href="javascript:document.languageFr.submit()">
+                        {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'fr' %}
+                        <i style="color: blue">Francais</i>
+                        {% else %}
+                        Francais
+                        {% endif %}
+                      </a>
+                      </form> 
+      </td>
+
+       <td>
+         <form name="languageHa" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="ha" />
+                        <a href="javascript:document.languageHa.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'ha' %}
+                        <i style="color: blue">Hausa</i>
+                        {% else %}
+                        Hausa
+                        {% endif %}
+                       </a>
+                      </form> 
+       </td>
+
+      <td>
+         <form name="languageIg" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="ig" />
+                        <a href="javascript:document.languageIg.submit()"> 
+                      {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'ig' %}
+                        <i style="color: blue">Igbo</i>
+                        {% else %}
+                        Igbo
+                        {% endif %}
+                      </a>
+                      </form>   
+
+      </td>
+
+      <td>
+        <form name="languageYo" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                     <input name="next" type="hidden" value="{{ redirect_to }}" />
+                        <input name="language" type="hidden" value="yo" />
+                        <a href="javascript:document.languageYo.submit()">
+                         {% get_current_language as LANGUAGE_CODE %} 
+                        {% if LANGUAGE_CODE == 'yo' %}
+                        <i style="color: blue">Yoruba</i>
+                        {% else %}
+                        Yoruba
+                        {% endif %}
+                       </a>
+                      </form> 
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
             </h6>
-           
-   <div class="card text-center">
-  <div class="card-body">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-             <h5>{{topic.main_title | safe}}</h5>
-            </div>
-            <div class="col">
-             <h5><!-- 
-           
-                {% for i in follow_cats %}
-                  
-                  {% if i.loi.num == 1 %}
-                    {{topic.EN_title | safe}}
-                  {% endif %}
+        <br><br>
+        <h3>
+        {% get_current_language as LANGUAGE_CODE %}
+          {% if LANGUAGE_CODE == 'en' %}
+          {{ topictitle.EN_title}}
+          {% endif %}
+          
+          {% if LANGUAGE_CODE == 'ig' %}
+          {{ topictitle.IG_title}}
+          {% endif %}
 
-                  {% if i.loi.num == 2 %}
-                    <h6>Igb</h6>
-                  {% endif %}
+          {% if LANGUAGE_CODE == 'ha' %}
+          {{ topictitle.HA_title}}
+          {% endif %}
 
-                {% endfor %} -->
-         </h5>
-            </div>
-          </div>
-        </div>
+           {% if LANGUAGE_CODE == 'yo' %}
+          {{ topictitle.YO_title}}
+          {% endif %}
+
+           {% if LANGUAGE_CODE == 'fr' %}
+          {{ topictitle.FR_title}}
+          {% endif %}
+
+          {% if LANGUAGE_CODE == 'ar' %}
+          {{ topictitle.AR_title}}
+          {% endif %}
+          </h3>
 
 
-          <div class="container">
-            <div class="row">
-              <div class="col">
-               {{topic.main_explanations | safe}}
-              </div>
-              <div class="col"><!-- 
-               {% for i in follow_cats %}
-                    {% if i.loi.num == 1 %}
-                      {{topic.EN_explanations | safe}}
-                    {% endif %}
+          <br><hr>
+           <p>{% for tc in topiccontent%}
+        {% get_current_language as LANGUAGE_CODE %}
+          {% if LANGUAGE_CODE == 'en' %}
+          {{ tc.EN_explanations }}
+          {% endif %}
+          
+          {% if LANGUAGE_CODE == 'ig' %}
+          {{ tc.IG_explanations}}
+          {% endif %}
 
-                    {% if i.loi.num == 2 %}
-                      <h6>YorUbA</h6>
-                    {% endif %}
+          {% if LANGUAGE_CODE == 'ha' %}
+          {{ tc.HA_explanations}}
+          {% endif %}
 
-                  {% endfor %} -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+           {% if LANGUAGE_CODE == 'yo' %}
+          {{ tc.YO_explanations}}
+          {% endif %}
 
-     
+           {% if LANGUAGE_CODE == 'fr' %}
+          {{ tc.FR_explanations}}
+          {% endif %}
 
-      </div>
-    </section><!-- End Contact Section -->
+          {% if LANGUAGE_CODE == 'ar' %}
+          {{ tc.AR_explanations}}
+          {% endif %}
+          {% endfor %}
+          </p>
+ 	  </div>
+ </section><!-- End Contact Section -->
 
 
 {% include '../auth_user/auth_footer.html' %}
