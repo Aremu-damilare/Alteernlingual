@@ -82,12 +82,12 @@ TEMPLATES = [
 ]
 
 #social-auth
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.facebook.FacebookOAuth2',
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.twitter.TwitterOAuth',
+#     'social_core.backends.facebook.FacebookOAuth2',
 
-    'django.contrib.auth.backends.ModelBackend',
-)
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 SOCIAL_AUTH_TWITTER_KEY = ''
 SOCIAL_AUTH_TWITTER_SECRET = ''
@@ -224,7 +224,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'a.damilare2012@gmail.com'
-EMAIL_HOST_PASSWORD = 'cicl12m\\cicl12m\\'
+EMAIL_HOST_PASSWORD = 'wazobiawazobia'
 EMAIL_PORT = 587
 
 

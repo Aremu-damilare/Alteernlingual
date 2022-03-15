@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Alteernlingual - Lesson {% endblock %}
+{% block title %}Alteɘrnligual - Lesson {% endblock %}
 {% load i18n %}
 {% load static %}
 {% block content %}
@@ -13,18 +13,25 @@
       
        <br><br>
                 <div class="card text-center">
-                  <div class="card-header">
-                   <i class="fas fa-book-open"></i> Select a <b> Lanuage of Interest</b>  you wish to learn
+                  <div class="card-header"><h4>
+                    <i class="fas fa-book-open"></i> I want to learn...
+                  </h4>
+                   
                   </div>
                   <div class="card-body">
                   	<img src="{% static 'img/readcart.png' %}"  width="200px"><br>
-                    <h5 class="card-title">I want to learn...</h5><br>
+                    <!-- <h5 class="card-title">I want to learn...</h5> --><br>
 
                          {% for cate in language %}
-                            {% if user.id not in cate.all_user %}            
-                                 <a href="{% url 'follow_cat' cate.id %}#skill" class="btn btn-info">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
-                                         {% else %} 
-                                <a style="color: red" class="btn btn-primary" href="{% url 'follow_cat' cate.id %}?unfollow=true">  - <i class="fas fa-envelope-open-text"></i>   &nbsp; {{ cate }} &nbsp; &nbsp;</a> &nbsp; &nbsp; 
+                            {% if user.id not in cate.all_user %}      
+                                  {% if if_follow %}
+                                 <a href="{% url 'follow_cat' cate.id %}#level" class="btn btn-dark disabled">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
+                                  {% else %} 
+                                  <a href="{% url 'follow_cat' cate.id %}#level" class="btn btn-secondary">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
+                                 {% endif %} 
+                                 
+                                 {% else %} 
+                                <a  class="btn btn-info" href="{% url 'follow_cat' cate.id %}?unfollow=true">  - <i class="fas fa-envelope-open-text"></i>   &nbsp; {{ cate }} &nbsp; &nbsp;</a> &nbsp; &nbsp; 
                          {% endif %}
                         {% endfor %}
                    <br><br>
@@ -33,7 +40,7 @@
                       {% endfor %}
                     <div>
                       <i>
-                        You can learn only one Language at a time
+                       <small> You can learn only one Language at a time</small> 
                       </i>
                     
                   </div>
@@ -47,11 +54,16 @@
 {% if fcats %}
      <div class="card text-center">
                   <div class="card-body">
-                    <h5 class="card-title"> <i class="far fa-dot-circle"></i> Choose Prefered skill</h5><br><br>
+                    <h5 class="card-title"> <i class="far fa-dot-circle"></i> Choose Prefered Level</h5><br><br>
                                  {% for ski in fcats %} 
-                                    {% if user.id not in ski.all_user %}          
-                                 <a href="{% url 'follow_ski' ski.id %}#skill" class="btn btn-warning"> + {{ ski }}   &nbsp; &nbsp;</a> 
-                                         {% else %} 
+                                    {% if user.id not in ski.all_user %}     
+                                    {% if if_level %}     
+                                 <a href="{% url 'follow_ski' ski.id %}#level" class="btn btn-warning disabled"> + {{ ski }}   &nbsp; &nbsp;</a> 
+                                 {% else %}
+                                 <a href="{% url 'follow_ski' ski.id %}#level" class="btn btn-warning"> + {{ ski }}   &nbsp; &nbsp;</a> 
+                                 {% endif %}       
+                                 
+                                 {% else %} 
                                  <a style="color: red" href="{% url 'follow_ski' ski.id %}?unfollow=true" class="btn btn-secondary">   - {{ ski }}  &nbsp; &nbsp;</a>
                          {% endif %}
                         {% endfor %}
@@ -60,38 +72,65 @@
                    
                   </div>
                   <div class="card-footer text-muted">
-                     Language of interest: 
-                      {% for cf in follow_cats %}
-                         <i> {{ cf.language}} </i> 
-                      {% endfor %} <br> skill: 
-                          {% for fs in follow_skill %}
-                              <i>{{ fs.skill }} </i> 
+                     
+                       <br>  
+                          {% for fs in follow_level %}
+                          level: <i>{{ fs.level }} </i> 
                       {% endfor %}
               </div>
+              
     </div>
    {% endif %}     
 
-        <br> <a href="" id="skill"></a>
+        <a href="" id="level"></a>
 
-                {% if cou %}
+                {% if posts %}
          <div class="card text-center">
                   <div class="card-body">
-                    <h5 class="card-title">Topics available to learn:</h5>
+                    <h5 class="card-title">Topics Available to Learn</h5>
                                                     
-                      {% for c in cou %}        
-                          <ul class="list-group">
+                      {% for c in posts %}        
+                          <ul class="list-group" style="text-align: left;"> 
                             <li class="list-group-item">
-                               <i class="fas fa-certificate"></i>{{c.skill.category}}
-                               <a href="{% url 'detail'  c.pk %}" style="font-size: 14px;">  {{ c.title }} </a> 
-
+                              <i class="fas fa-book-open"></i>
+                              <u> <b><a href="{% url 'detail'  c.pk %}" style="font-size: 14px;">  {{ c.title }} </a></b> </u> 
                             </li> 
                           </ul>
-
+                          
                       {% endfor %}
                   </div>
-                  <div class="card-footer text-muted">
-                    
+                  <div class="">
+                    {% if page_obj.has_previous %}
+  <a style="font-size: 20px;" href="?page={{ page_obj.previous_page_number }}">« Previous page</a>
+
+  {% if page_obj.number > 3 %}
+    <a style="font-size: 20px;" href="?page=1">1</a>
+    {% if page_obj.number > 4 %}
+      <span>...</span>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+  {% if page_obj.number == num %}
+    <a style="font-size: 20px;"  href="?page={{ num }}">{{ num }}</a>
+  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+    <a style="font-size: 20px;" href="?page={{ num }}">{{ num }}</a>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+    <span>...</span>
+    <a  style="font-size: 20px;" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+  {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+    <a  style="font-size: 20px;" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+  {% endif %}
+
+  <a style="font-size: 20px;" href="?page={{ page_obj.next_page_number }}">Next Page »</a>
+{% endif %}
                   </div>
+                  
                 </div>       
 
           {% endif %}

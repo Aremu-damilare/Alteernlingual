@@ -1,6 +1,5 @@
 from django import forms
-from Alteernlingual_topic.models import  SubTopicDetails
-
+from Alteernlingual_topic.models import  Topic
 
 
 # class LTLLOIfORM(forms.ModelForm):
@@ -11,5 +10,5 @@ from Alteernlingual_topic.models import  SubTopicDetails
 
 class SubTopicDetailForm(forms.ModelForm):
     class Meta:
-        model = SubTopicDetails
+        model = Topic
         fields = '__all__'

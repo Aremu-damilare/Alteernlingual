@@ -1,38 +1,58 @@
 {% extends 'base.html' %}
-{% block title %}Alteernlingual - {{topic.title}}{% endblock %}
+{% block title %}Alteɘrnligual - {{topic.title}}{% endblock %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
 
-
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
 
 <script>
 function goBack() {
-  window.history.back();
-}
+  window.history.back();}
 </script> 
+
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
 
 {% include '../auth_user/userNavTopicDetail.html' %}
 
   <section >
     <div class="container">
-      <br><br>
-            <h6>Select lanuage of interaction:
-                  {% for l in loi %} 
-                      {% if user.id not in l.all_user %}          
-                         <a class="btn" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
-                                 {% else %} 
-                         <a class="btn btn"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
-                   {% endif %}
-              {% endfor %}
-            </h6>
-        <br><br>
-  
- <button class="btn btn-outline-primary" onclick="goBack()"> <i class="fas fa-fast-backward"></i></button>
-   <br><br>
+      <br>
+
   <style>
+    p{
+      padding-left: 10px;
+    }
+        audio { display:none; }
+
+        .audiojs {
+          float: none;
+    position: absolute;
+    width: 35px;
+    background-image: url();
+    background-size: cover;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 41px;
+    margin-top: -45px;
+    margin-bottom: 15px;
+    margin-left: -15px;
+    display: -webkit-inline-box;
+    -webkit-box-shadow: 1px 1px 8px rgb(255 255 255 / 30%);
+    
+        }
+
+
+        .audiojs .play-pause { border-right: 0px; }
+        .audiojs .scrubber { display: none; } 
+        .audiojs .time {  display: none; } 
+        .audiojs .time {  display: none; }
+        
     table {
       margin-left: auto;
       margin-right: auto;
@@ -40,10 +60,11 @@ function goBack() {
       height: 100%;
       table-layout: fixed;
       width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
     td {
-      border: 0.1px solid #4A5073;
+      border: 0.1px solid #c1caff;
       text-align: left;
       padding: 3px;
       background-color: white;
@@ -58,8 +79,26 @@ function goBack() {
       /*color: green;*/
     }
   </style>
+
+  {{ prev_topic}}
+
   <center>
-    
+    <h6>
+      
+      {% for l in loi %} 
+          {% if user.id not in l.all_user %}  
+          {% if follow_loi %}        
+             <a class="btn btn-dark-sm disabled" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
+                     {% else %} 
+              <a class="btn btn-info" href="{% url 'follow_loi' l.id %}">  + {{l }}  &nbsp;</a> 
+                     {% endif %}
+
+                     {% else %}
+             <a class="btn btn-secondary"style="color: red" href="{% url 'follow_loi' l.id %}?unfollow=true"> - {{ l }} &nbsp;</a>
+       {% endif %}
+  {% endfor %}
+</h6>
+
     <table>
       <tr>
         <td width="50px">
@@ -77,11 +116,6 @@ function goBack() {
 
                   {% if i.loi.num == 2 %}
                     {{topic.EN_title | safe}}
-                    {% if topic.audio_file_en %}
-                      <audio id="{{ topic.audio_file_en }}" src="{{ topic.audio_file_en.url }}"></audio>
-                    <button class="btn btn-link" onclick="document.getElementById('{{ topic.audio_file_en }}').play()"><i class="fas fa-volume-up"></i></button>
-                    {% endif %}
-
                   {% endif %}
 
                   {% if i.loi.num == 3 %}
@@ -97,13 +131,8 @@ function goBack() {
                   {% endif %}
 
                   {% if i.loi.num == 6 %}
-                    {{topic.YO_title | safe}}
-                    {% if topic.audio_file_yo %}
-                      <audio id="{{ topic.audio_file_yo }}" src="{{ topic.audio_file_yo.url }}"></audio>
-                    <button class="btn btn-link" onclick="document.getElementById('{{ topic.audio_file_yo }}').play()"><i class="fas fa-volume-up"></i></button>
-                    {% endif %}
+                    {{topic.YO_title | safe}}                    
                   {% endif %}
-
                 {% endfor %}
           </td>
 
@@ -113,64 +142,45 @@ function goBack() {
               {{ fl.language }}
             {% endfor %}
           </b>  
-           <hr></h6>
+           <hr>
+          </h6>
+          
         {{topic.main_title | safe}}
-        {% if topic.audio_main_title %}
-               <audio id="{{ topic.audio_main_title }}" src="{{ topic.audio_main_title.url }}"></audio>
-                <button class="btn btn-link" onclick="document.getElementById('{{ topic.audio_main_title }}').play()"><i class="fas fa-volume-up"></i></button>
-              {% else %}
-            {% endif %}
+        
         </td>
        
       </tr>
     </table>
 
+    <br>
 
      <table>
-      <tr>
-        {% for topicdetail in topicdetails %}
+      <tr>        
         <td>
                 {% for i in follow_cats %}
                   
                   {% if i.loi.num == 1 %}
-                    {{topicdetail.AR_explanations | safe}}
+                    {{topic.AR_explanations | safe}}
                   {% endif %}
 
                   {% if i.loi.num == 2 %}
-
-                    {{topicdetail.EN_explanations | safe}}
-                     {% if topicdetail.audio_file_en %}
-                      <audio id="{{ topicdetail.audio_file_en }}" src="{{ topicdetail.audio_file_en.url }}"></audio>
-                    <button class="btn btn-link" onclick="document.getElementById('{{ topicdetail.audio_file_en }}').play()"><i class="fas fa-volume-up"></i></button>
-                    {% endif %}
-
+                    {{topic.EN_explanations | safe}}
                   {% endif %}
 
                   {% if i.loi.num == 3 %}
-                    {{topicdetail.FR_explanations | safe}}
+                    {{topic.FR_explanations | safe}}
                   {% endif %}
 
                   {% if i.loi.num == 4 %}
-                    {{topicdetail.HA_explanations | safe}}
+                    {{topic.HA_explanations | safe}}
                   {% endif %}
 
                   {% if i.loi.num == 5 %}
-                    {{topicdetail.IG_explanations | safe}}
-                    <audio id="player" src="{{ topicdetail.audio_file_ig %}"></audio>
-                    <button onclick="document.getElementById('player').play()">Play</button>
+                    {{topic.IG_explanations | safe}}
                   {% endif %}
 
-                  {% if i.loi.num == 6 %}
-                  
-                      {{topicdetail.YO_explanations | safe}}
-                    
-                    
-                      {% if topicdetail.audio_file_yo %}
-                      <audio id="{{ topicdetail.audio_file_yo }}" src="{{ topicdetail.audio_file_yo.url }}"></audio>
-                    <button class="btn btn-link" onclick="document.getElementById('{{ topicdetail.audio_file_yo }}').play()"><i class="fas fa-volume-up"></i></button>
-                    {% endif %}
-                    
-                    
+                  {% if i.loi.num == 6 %}                  
+                      {{topic.YO_explanations | safe}} 
                   {% endif %}
 
                 {% endfor %}
@@ -178,37 +188,25 @@ function goBack() {
           </td>      
         <td>
        
-            {{ topicdetail.main_explanations | safe}}
-            {% if topicdetail.audio_main %}
-               <audio id="{{ topicdetail.audio_main }}" src="{{ topicdetail.audio_main.url }}"></audio>
-                <button class="btn btn-link" onclick="document.getElementById('{{ topicdetail.audio_main }}').play()"><i class="fas fa-volume-up"></i></button>
-              {% else %}
-             
-            {% endif %}
+            {{ topic.main_explanations | safe}}
+            
        
         </td>
       </tr>
-      {% endfor %}
+     
     </table>
 
     <br>
 
-       {% if request.user not in topic.read.all %} 
-                            <a class="btn btn-primary" href="{% url 'read_topic' topic.slug %}">(Read)</a>
-                            <small style="color: blue;"> Click on the "Read" button after reading this topic.</small>
+                  {% if request.user not in topic.read.all %} 
+                            <a class="btn btn-dark" href="{% url 'read_topic' topic.slug %}"> Mark as Read <i class="far fa-bookmark"></i></a>
+                           
                         {% else %} 
-                            <a class="btn btn-primary" href="{% url 'read_topic' topic.slug %}">(Unread)</a>
-                            <small style="color: blue;"> Click on the "Unread" button to remove topic from read memory.</small>
+                            <a class="btn btn-primary" href="{% url 'read_topic' topic.slug %}"> Mark as Unread <i class="far fa-bookmark"></i> </a>
+                            
                         {% endif %}
   </center>
 
-                   <!--  <form action="{% url 'add_comment' object.pk %}" method="POST" enctype="multipart/form-data">
-                      {% csrf_token %}
-                      {{ form|crispy }}
-                       <button class="btn btn-dark btn-lg btn-block" type="submit">{% trans "add" %}</button>
-                    </form> -->
-</body>
-     
        </div>               
       </div>
     </section><!-- End Contact Section -->

@@ -20,7 +20,7 @@ from django.views import View
 
 from .forms import ProfileForm, form_validation_error
 from .models import Profile
-from Alteernlingual_topic.models import SubTopic, LanguageFollow, Language
+from Alteernlingual_topic.models import Topic, LanguageFollow, Language, LanguageLevel
 from alteernlingual_subjects.models import SubjectFollow
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
@@ -40,11 +40,11 @@ def topicPercent(read_count, total_topic):
 def dashboard(request):
     language_follow = LanguageFollow.objects.filter(user=request.user)
     read = LanguageFollow.objects.filter(user=request.user)
-    read_count = SubTopic.objects.filter(read=request.user, language__language_follow__user=request.user).count()
-    total_topic = SubTopic.objects.filter(language__language_follow__user=request.user).count()
+    read_count = Topic.objects.filter(read=request.user, language__language_follow__user=request.user).count()
+    total_topic = Topic.objects.filter(language__language_follow__user=request.user).count()
     percent =  topicPercent(read_count, total_topic)
     subject_follow = SubjectFollow.objects.filter(user=request.user)
-    last_read = SubTopic.objects.filter(read=request.user).last()
+    last_read = Topic.objects.filter(read=request.user).last()
 
     return render(request, 'auth_user/userDashboard.html',  {
     "read_count": read_count, "total_topic": total_topic, 'language_follow': language_follow, "percent": percent,
