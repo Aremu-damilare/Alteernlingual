@@ -15,7 +15,7 @@ class lessonsView(ListView):
     model = Topic
     context_object_name = 'posts'
     template_name = 'lessons/lessons.html'
-    paginate_by = 10
+    paginate_by = 20
 
     def get_queryset(self):
         return Topic.objects.filter(level__level_follow__user=self.request.user)
@@ -169,8 +169,14 @@ def search(request):
     if request.method == "POST":
         query_name = request.POST.get('name', None)
         if query_name:
-            results = Topic.objects.filter(main_explanations__contains=query_name )
-            return render(request, 'lessons/search.html', {"results":results, "query_name":query_name},)
+            results = Topic.objects.filter(
+               Q(main_explanations__contains=query_name) | Q(title__contains=query_name) 
+            )
+                
+            if results:
+                return render(request, 'lessons/search.html', {"results":results, "query_name":query_name},)
+            else:
+                return render(request, 'lessons/search.html', {"results": "!", "query_name":query_name},)
 
     return render(request, 'lessons/search.html')
 

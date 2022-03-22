@@ -79,7 +79,7 @@ class Topic(models.Model):
         return super(Topic, self).save(*args, **kwargs)
 
     def get_url(self):
-       return reverse('topic_detail', args=[self.id])
+       return reverse('detail', args=[self.id])
 
 
 class readCount(models.Model):

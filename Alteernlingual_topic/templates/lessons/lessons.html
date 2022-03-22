@@ -5,6 +5,25 @@
 {% block content %}
 
 {% include '../auth_user/userNav.html' %}
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" 
+integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+  $('#show-hidden-menu').click(function() {
+    $('.hidden-menu').slideToggle("slow");
+    // Alternative animation for example
+    // slideToggle("fast");
+  });
+});
+
+$(document).ready(function() {
+  $('#show-hidden-menu-level').click(function() {
+    $('.hidden-menu-level').slideToggle("slow");
+    // Alternative animation for example
+    // slideToggle("fast");
+  });
+});
+</script>
 
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
   <section >
@@ -12,14 +31,21 @@
       <br><br>
       
        <br><br>
+       <div>
                 <div class="card text-center">
-                  <div class="card-header"><h4>
-                    <i class="fas fa-book-open"></i> I want to learn...
+                  <div class="card-header"  id="show-hidden-menu">
+                    <button class="btn btn-light" data-mdb-ripple-color="dark">
+                    <h4>
+                      <img src="{% static 'img/readcart.png' %}"  width="200px" height="150px"><br>
+                      
+                    I want to learn...
+                   </button>
                   </h4>
+                <!-- </button> -->
                    
                   </div>
-                  <div class="card-body">
-                  	<img src="{% static 'img/readcart.png' %}"  width="200px"><br>
+                  <div class="card-body hidden-menu" style="display: none;">
+                  	<!-- <img src="{% static 'img/readcart.png' %}"  width="200px"><br> -->
                     <!-- <h5 class="card-title">I want to learn...</h5> --><br>
 
                          {% for cate in language %}
@@ -41,20 +67,27 @@
                     <div>
                       <i>
                        <small> You can learn only one Language at a time</small> 
-                      </i>
-                    
+                      </i>                    
                   </div>
                   </div>
                   
-                </div>
-
-
-     <br><br>
+                </div>         
+     <br>
  
 {% if fcats %}
      <div class="card text-center">
-                  <div class="card-body">
-                    <h5 class="card-title"> <i class="far fa-dot-circle"></i> Choose Prefered Level</h5><br><br>
+                  <div class="card-body" id="show-hidden-menu-level">
+                    <button class="btn btn-light" data-mdb-ripple-color="dark">
+                    
+                    <h5 >
+                      <!-- <i class="fa fa-paint-brush" aria-hidden="true"></i>  -->
+                      <img src="{% static 'img/point-right.png' %}"  width="20px" height="20px">
+                      &nbsp;
+                       Prefered Level
+                      </h5>
+                    </button>
+                    <hr><br>
+                    <div class="hidden-menu-level" style="display: none;">
                                  {% for ski in fcats %} 
                                     {% if user.id not in ski.all_user %}     
                                     {% if if_level %}     
@@ -71,29 +104,43 @@
                    <br><br>
                    
                   </div>
-                  <div class="card-footer text-muted">
+                  <!-- <div class="card-footer text-muted">
                      
                        <br>  
                           {% for fs in follow_level %}
                           level: <i>{{ fs.level }} </i> 
                       {% endfor %}
-              </div>
+                  </div> -->
+                </div>
               
     </div>
    {% endif %}     
+  </div>
 
+  <br>
         <a href="" id="level"></a>
 
-                {% if posts %}
+        {% if posts %}
          <div class="card text-center">
                   <div class="card-body">
+                    &nbsp;
                     <h5 class="card-title">Topics Available to Learn</h5>
-                                                    
+                    &nbsp;                                                    
                       {% for c in posts %}        
                           <ul class="list-group" style="text-align: left;"> 
                             <li class="list-group-item">
-                              <i class="fas fa-book-open"></i>
-                              <u> <b><a href="{% url 'detail'  c.pk %}" style="font-size: 14px;">  {{ c.title }} </a></b> </u> 
+                              
+
+                               {% if request.user not in c.read.all %}
+                              <u> <i class="fas fa-book-open"></i>
+                                <b><a href="{% url 'detail'  c.pk %}" style="font-size: 15px;">  {{ c.title }} </a></b> </u> 
+
+                              {% else %}
+                              <u><i class="fa fa-check" aria-hidden="true"></i>
+                                 <b><a href="{% url 'detail'  c.pk %}" style="font-size: 15px; color: darkgrey;">  {{ c.title }} </a></b> </u> 
+                              {% endif %}
+
+
                             </li> 
                           </ul>
                           
@@ -101,34 +148,34 @@
                   </div>
                   <div class="">
                     {% if page_obj.has_previous %}
-  <a style="font-size: 20px;" href="?page={{ page_obj.previous_page_number }}">« Previous page</a>
+                    <a style="font-size: 20px;" href="?page={{ page_obj.previous_page_number }}">« Previous</a>
 
-  {% if page_obj.number > 3 %}
-    <a style="font-size: 20px;" href="?page=1">1</a>
-    {% if page_obj.number > 4 %}
-      <span>...</span>
-    {% endif %}
-  {% endif %}
-{% endif %}
+                    {% if page_obj.number > 3 %}
+                    &nbsp; <a style="font-size: 20px;" href="?page=1">1</a> &nbsp;
+                      {% if page_obj.number > 4 %}
+                        <span>...</span>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
 
-{% for num in page_obj.paginator.page_range %}
-  {% if page_obj.number == num %}
-    <a style="font-size: 20px;"  href="?page={{ num }}">{{ num }}</a>
-  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-    <a style="font-size: 20px;" href="?page={{ num }}">{{ num }}</a>
-  {% endif %}
-{% endfor %}
+                  {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                      &nbsp; <a style="font-size: 20px;"  href="?page={{ num }}">{{ num }}</a>&nbsp;
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    &nbsp;    <a style="font-size: 20px;" href="?page={{ num }}">{{ num }}</a>&nbsp; 
+                    {% endif %}
+                  {% endfor %}
 
-{% if page_obj.has_next %}
-  {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
-    <span>...</span>
-    <a  style="font-size: 20px;" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
-  {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
-    <a  style="font-size: 20px;" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
-  {% endif %}
+                  {% if page_obj.has_next %}
+                    {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                      <span>...</span>
+                      &nbsp;    <a  style="font-size: 20px;" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a> &nbsp;
+                    {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+                    &nbsp;   <a  style="font-size: 20px;" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a> &nbsp;
+                    {% endif %}
 
-  <a style="font-size: 20px;" href="?page={{ page_obj.next_page_number }}">Next Page »</a>
-{% endif %}
+                    <a style="font-size: 20px;" href="?page={{ page_obj.next_page_number }}">Next »</a>
+                  {% endif %}
                   </div>
                   
                 </div>       

@@ -6,34 +6,128 @@
 
 {% include '../auth_user/userNav.html' %}
 
-<!-- <link href=" {% static 'css/volt.css' %} " rel="stylesheet"> -->
+<link href=" {% static 'css/volt.css' %} " rel="stylesheet">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');
+
+body {
+    background-color: #E7E9F5;
+    font-family: 'Heebo', sans-serif
+}
+
+.card {
+    width: 100%;
+    border: none;
+    border-radius: 20px
+}
+
+.form-control {
+    border-radius: 7px;
+    border: 1.5px solid #E3E6ED
+}
+
+input.form-control:focus {
+    box-shadow: none;
+    border: 1.5px solid #E3E6ED;
+    background-color: #F7F8FD;
+    letter-spacing: 1px
+}
+
+.btn-primary {
+    background-color: #5878FF !important;
+    border-radius: 7px
+}
+
+.btn-primary:focus {
+    box-shadow: none
+}
+
+.text {
+    font-size: 13px;
+    color: #9CA1A4
+}
+
+.price {
+    background: #F5F8FD;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 97px
+}
+
+.flex-row {
+    border: 1px solid #F2F2F4;
+    border-radius: 10px;
+    margin: 0 1px 0
+}
+
+.flex-column p {
+    font-size: 14px
+}
+
+span.mb-2 {
+    font-size: 12px;
+    color: #8896BD
+}
+
+h5 span {
+    color: #869099
+}
+
+@media screen and (max-width: 450px) {
+    .card {
+        display: flex;
+        justify-content: center;
+        text-align: center
+    }
+
+    .price {
+        border: none;
+        margin: 0 auto
+    }
+}
+</style>
  <section id="hero" class="d-flex align-items-center">
     <div class="container">
-<p>Search Alteɘrnligual</p>
+
 <form action="{% url 'search' %}" method="POST">
-    {% csrf_token %} 
-    <input type="text" name="name"><br>
-    <input type="submit" name="submit" value="Search">
+	{% csrf_token %} 
+<div class="container d-flex justify-content-center">
+    <div class="card mt-5 p-4">
+        <div class="input-group mb-3"> 
+			<input type="text" class="form-control" name="name">
+            <div class="input-group-append">
+				<button class="btn btn-primary"><i class="fas fa-search"></i></button>
+			</div>
+        </div> 
+		<span class="text mb-4">Search Alteɘrnligual</span>
+        <div >
+            <div>
+				{% if results %}
+				{% for result in results %}
+				Search: {{ query_name }}
+                <li >
+					<a href="{{result.get_url}}"> {{result.title}}</a> 
+					<span class="mb-2">{{result.language}} language </span>
+					<hr> 
+				</li> 
+				<!-- <small class="text-muted">{{result.main_explanations | safe}}</small> -->
+				{% endfor %}
+            </div>
+            <div >
+				{% endif %}
+				
+				{% if results == "!" %}
+					<p>No topic found matching your search query</p>
+				{% endif %}
+            </div>
+        </div>
+        
+    </div>
+</div>
 </form>
 
 <br><br>
-					{% if results %}
-						<p> You searced for "{{ query_name }}" </p>
-						{% for result in results %}
-							<div><h4><i class="fas fa-book-open"></i> <a href="{{result.get_url}}"> {{result.title}}</a></h4>
-										 <p>{{result.main_explanations | safe}}</p>
-										<p> <i> (topic: {{result.subtopic}} ) ({{result.language}} language )</i> </p><hr>
-
-
-							</div>
-						{% endfor %}
-							{% else %}
-
-							<div>
-								    <h4><i class="fas fa-book-open"></i> search using the search bar!</h4>
-										
-							</div>
-				{% endif %}
+					
 
       </div>
     </section><!-- End Contact Section -->

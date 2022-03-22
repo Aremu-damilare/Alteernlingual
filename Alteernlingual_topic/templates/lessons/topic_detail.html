@@ -199,12 +199,11 @@ function goBack() {
     <br>
 
                   {% if request.user not in topic.read.all %} 
-                            <a class="btn btn-dark" href="{% url 'read_topic' topic.slug %}"> Mark as Read <i class="far fa-bookmark"></i></a>
-                           
-                        {% else %} 
-                            <a class="btn btn-primary" href="{% url 'read_topic' topic.slug %}"> Mark as Unread <i class="far fa-bookmark"></i> </a>
-                            
-                        {% endif %}
+                      <a class="btn btn-secondary btn-lg btn-block" href="{% url 'read_topic' topic.slug %}"> Mark as Read <i class="far fa-bookmark"></i></a>     
+                  {% else %} 
+                      <a class="btn btn-primary btn-lg btn-block" href="{% url 'read_topic' topic.slug %}"> Mark as Unread <i class="far fa-bookmark"></i> </a>
+                  {% endif %}
+                  
   </center>
 
        </div>               
