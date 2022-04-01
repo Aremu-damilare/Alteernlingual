@@ -5,6 +5,8 @@
 {% block content %}
 
 {% include '../auth_user/userNav.html' %}
+
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" 
 integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
@@ -25,21 +27,28 @@ $(document).ready(function() {
 });
 </script>
 
+
 <link href=" {% static 'css/volt.css' %} " rel="stylesheet">
   <section >
     <div class="container">
       <br><br>
-      
+      <style>
+        .btn-light {
+            color: #262B40;
+            background-color: #ffffff;
+            border-color: #eaedf2;
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(46 54 80 / 8%);
+        }  
+        </style>
        <br><br>
        <div>
                 <div class="card text-center">
                   <div class="card-header"  id="show-hidden-menu">
-                    <button class="btn btn-light" data-mdb-ripple-color="dark">
+                   
                     <h4>
-                      <img src="{% static 'img/readcart.png' %}"  width="200px" height="150px"><br>
-                      
+                      <img src="{% static 'img/readcart.png' %}"  width="100px" height="100px"><br><br>
                     I want to learn...
-                   </button>
+                  
                   </h4>
                 <!-- </button> -->
                    
@@ -51,9 +60,9 @@ $(document).ready(function() {
                          {% for cate in language %}
                             {% if user.id not in cate.all_user %}      
                                   {% if if_follow %}
-                                 <a href="{% url 'follow_cat' cate.id %}#level" class="btn btn-dark disabled">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
+                                 <a href="{% url 'follow_cat' cate.id %}#level" class="btn btn-link disabled">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
                                   {% else %} 
-                                  <a href="{% url 'follow_cat' cate.id %}#level" class="btn btn-secondary">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
+                                  <a href="{% url 'follow_cat' cate.id %}#level" class="btn btn-link">  +  <i class="fas fa-envelope"></i> &nbsp; {{ cate }}  &nbsp; &nbsp; </a> &nbsp; &nbsp;
                                  {% endif %} 
                                  
                                  {% else %} 
@@ -66,43 +75,43 @@ $(document).ready(function() {
                       {% endfor %}
                     <div>
                       <i>
-                       <small> You can learn only one Language at a time</small> 
+                       <small> You can learn only one language at a time</small> 
                       </i>                    
                   </div>
                   </div>
                   
                 </div>         
-     <br>
- 
-{% if fcats %}
+   <br>
+    {% if fcats %}
      <div class="card text-center">
                   <div class="card-body" id="show-hidden-menu-level">
-                    <button class="btn btn-light" data-mdb-ripple-color="dark">
+                    
                     
                     <h5 >
                       <!-- <i class="fa fa-paint-brush" aria-hidden="true"></i>  -->
-                      <img src="{% static 'img/point-right.png' %}"  width="20px" height="20px">
+                      
                       &nbsp;
-                       Prefered Level
+                       Choose language level
                       </h5>
-                    </button>
-                    <hr><br>
+                   
+
+                   <br>
                     <div class="hidden-menu-level" style="display: none;">
                                  {% for ski in fcats %} 
                                     {% if user.id not in ski.all_user %}     
                                     {% if if_level %}     
                                  <a href="{% url 'follow_ski' ski.id %}#level" class="btn btn-warning disabled"> + {{ ski }}   &nbsp; &nbsp;</a> 
                                  {% else %}
-                                 <a href="{% url 'follow_ski' ski.id %}#level" class="btn btn-warning"> + {{ ski }}   &nbsp; &nbsp;</a> 
+                                 <a href="{% url 'follow_ski' ski.id %}#level" class="btn btn-link"> + {{ ski }}   &nbsp; &nbsp;</a> 
                                  {% endif %}       
                                  
                                  {% else %} 
-                                 <a style="color: red" href="{% url 'follow_ski' ski.id %}?unfollow=true" class="btn btn-secondary">   - {{ ski }}  &nbsp; &nbsp;</a>
+                                 <a style="color: red" href="{% url 'follow_ski' ski.id %}?unfollow=true" class="btn btn-link">   - {{ ski }}  &nbsp; &nbsp;</a>
                          {% endif %}
                         {% endfor %}
                         
-                   <br><br>
-                   
+                   <br>
+                   <br>
                   </div>
                   <!-- <div class="card-footer text-muted">
                      
@@ -117,14 +126,21 @@ $(document).ready(function() {
    {% endif %}     
   </div>
 
-  <br>
-        <a href="" id="level"></a>
+      {% if posts %}
+      
+        {% endif %}
 
         {% if posts %}
          <div class="card text-center">
                   <div class="card-body">
                     &nbsp;
-                    <h5 class="card-title">Topics Available to Learn</h5>
+                    <h5 class="card-title">Topics for you to learn</h5>
+                    <p>
+                      <small>
+                        The last topic you read was
+                      </small> <br>
+                        {{ last_read }}
+                    </p>
                     &nbsp;                                                    
                       {% for c in posts %}        
                           <ul class="list-group" style="text-align: left;"> 
@@ -132,19 +148,19 @@ $(document).ready(function() {
                               
 
                                {% if request.user not in c.read.all %}
-                              <u> <i class="fas fa-book-open"></i>
-                                <b><a href="{% url 'detail'  c.pk %}" style="font-size: 15px;">  {{ c.title }} </a></b> </u> 
+                              
+                                <a href="{% url 'detail'  c.pk %}" style="font-size: 15px;">  {{ c.title }} </a>
 
                               {% else %}
-                              <u><i class="fa fa-check" aria-hidden="true"></i>
-                                 <b><a href="{% url 'detail'  c.pk %}" style="font-size: 15px; color: darkgrey;">  {{ c.title }} </a></b> </u> 
+                              <i class="fa fa-check" aria-hidden="true"></i>
+                                 <a href="{% url 'detail'  c.pk %}" style="font-size: 15px; color: darkgrey;">  {{ c.title }} </a>
                               {% endif %}
 
 
                             </li> 
                           </ul>
                           
-                      {% endfor %}
+                   {% endfor %}
                   </div>
                   <div class="">
                     {% if page_obj.has_previous %}

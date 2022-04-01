@@ -244,7 +244,9 @@ padding: 100px 0 0px 0;
                             <div class="card-body">
                                 <div class="row align-items-center mb-4">
                                     <div class="col-auto">
-                                        <span class="icon icon-md text-purple"><i class="far fa-sticky-note"></i></i></span>
+                                        <!-- <span class="icon icon-md text-purple">
+                                          <i class="far fa-sticky-note"></i></i>
+                                        </span> -->
                                     </div>
                                     <div class="col">
                                         <div class="progress-wrapper">
@@ -252,21 +254,22 @@ padding: 100px 0 0px 0;
                                                 <!-- <div class="h6 mb-0"></div> <br> -->
                                                 <!-- <div class="small font-weight-bold text-dark"><span>5 %</span></div> -->
                                             </div>
-                                            {% if language_follow %}
-                                            {% for i in language_follow %}
+                                           
                                            
                                             <div class="container">
                                               <div class="row">
                                                   <div class="col-md-6">
                                                     <img src="{% static 'img/green-book.png' %}" height="100px">
-                                                      <h3 class="progress-title">Language</h3>
+                                                    {% if language_follow %}
+                                                    {% for i in language_follow %}
+                                                      <h3 class="progress-title"><a href="{% url 'lessons' %}#level">{{ i.language }} language</a>  </h3>
                                                       <div class="progress-outer">
                                                           <div class="progress">
                                                               <div class="progress-bar progress-bar-color progress-bar-striped progress-bar-danger" style="width:{{ percent }}%;">{{ percent }}%</div>
                                                               <div class="progress-value"><span>{{ percent }}</span>%</div>
                                                           </div>
                                                       </div>
-                                                      <h6> <br> <a href="{% url 'lessons' %}#level">{{ i.language }} language</a>. <br>
+                                                      <h6> <br> 
                                                         {{ read_count }} {%endfor%}  out of {{ total_topic }} topics read</h6>
                   
                                                           {% else %}

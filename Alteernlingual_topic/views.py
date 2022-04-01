@@ -26,6 +26,7 @@ class lessonsView(ListView):
         context['level'] = LanguageLevel.objects.all()
         context['fcats'] = LanguageLevel.objects.filter(language__language_follow__user=self.request.user)
         context['cou'] = Topic.objects.filter(level__level_follow__user=self.request.user)
+        context['last_read'] = Topic.objects.filter(read=self.request.user, level__level_follow__user=self.request.user, language__language_follow__user=self.request.user).last()
         context['follow_cats'] = LanguageFollow.objects.filter(user=self.request.user)
         # context['follow_level'] = LanguageLevel.objects.filter(user=self.request.user)
         context['if_follow'] = LanguageFollow.objects.filter(language__language_follow__user=self.request.user).exists()
