@@ -40,7 +40,7 @@ class LanguageLevel(models.Model):
 
 class Topic(models.Model):
     title = models.CharField(_("title"), max_length=150)
-    main_title =  models.TextField(max_length=50000, null=True, blank=True, default=None)
+    main_title =  RichTextUploadingField(max_length=50000, null=True, blank=True, default=None)
     main_explanations = RichTextUploadingField(null=True, blank=True, default=None)
 
     language = models.ForeignKey(Language, verbose_name="topic_language", on_delete=models.CASCADE, related_name='follow_language', default=None)
@@ -49,7 +49,7 @@ class Topic(models.Model):
     AR_title = models.TextField(max_length=50000, null=True, blank=True, default=None)
     AR_explanations = models.TextField(null=True, blank=True, default=None)
 
-    EN_title = models.TextField(max_length=50000, null=True, blank=True, default=None,)
+    EN_title = RichTextUploadingField(max_length=50000, null=True, blank=True, default=None,)
     EN_explanations = RichTextUploadingField(null=True, blank=True, default=None)
 
     FR_title = models.TextField(max_length=50000, null=True, blank=True, default=None)
